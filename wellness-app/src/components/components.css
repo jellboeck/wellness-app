@@ -1,0 +1,60 @@
+.sign-up-logo{
+    z-index: 2;
+
+  }
+
+.container {
+    padding-left: 0px;
+}
+
+.card-signup{
+    border-radius: 50px;
+    background: teal;
+    opacity: 0.8;
+    font-weight: bolder;
+  }
+
+  .clear{
+    background-color: rgba(39, 39, 39, 0.384);
+    border-radius: 50px;
+    }
+  
+  .now-ui-icons{
+    color: white;
+    /* background-color: inherit; */
+  }
+  
+  .form-group.no-border .form-control, .form-group.no-border .form-control + .input-group-text, .input-group.no-border .form-control, .input-group.no-border .form-control + .input-group-text {
+    background-color: rgba(43, 42, 42, 0.89);
+    text-align: center;
+    font-weight: bolder;
+    font-size: 15px;
+  }
+  
+  .form-group.no-border .input-group-prepend .input-group-text, .input-group.no-border .input-group-prepend .input-group-text {
+    background-color: rgba(43, 42, 42, 0.89);
+  }
+  
+  .btn-neutral.btn-info {
+    color: teal;
+    font-weight: bolder;
+  }
+  
+  .btn-lg[class*="btn-outline-"] {
+    padding: 14px 47px;
+    color: rgb(0, 0, 0);
+    font-weight: bolder;
+    border: none;
+  }
+
+  .n-logo {
+    max-width: 300px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .brand{
+    padding-top: 230px;
+  }
+  
