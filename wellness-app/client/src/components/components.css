@@ -58,4 +58,11 @@
   .brand{
     padding-top: 230px;
   }
-  
+
+  .sidebar-collapse [class*="navbar-expand-"] .navbar-collapse {
+      width: 300px;
+  }
+
+  .padright{
+    padding-right: 10px;
+  }

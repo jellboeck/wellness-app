@@ -1,11 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 // reactstrap components
 import {
   Collapse,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
+  // DropdownToggle,
+  // DropdownMenu,
+  // DropdownItem,
   UncontrolledDropdown,
   NavbarBrand,
   Navbar,
@@ -13,7 +13,7 @@ import {
   NavLink,
   Nav,
   Container,
-  UncontrolledTooltip
+  // UncontrolledTooltip
 } from "reactstrap";
 
 function ExamplesNavbar() {
@@ -52,40 +52,7 @@ function ExamplesNavbar() {
       <Navbar className={"fixed-top " + navbarColor} color="info" expand="lg">
         <Container>
           <UncontrolledDropdown className="button-dropdown">
-            <DropdownToggle
-              caret
-              data-toggle="dropdown"
-              href="#pablo"
-              id="navbarDropdown"
-              tag="a"
-              onClick={e => e.preventDefault()}
-            >
-              <span className="button-bar"></span>
-              <span className="button-bar"></span>
-              <span className="button-bar"></span>
-            </DropdownToggle>
-            <DropdownMenu aria-labelledby="navbarDropdown">
-              {/* <DropdownItem header tag="a">
-                Dropdown header
-              </DropdownItem> */}
-              <DropdownItem href="#pablo" onClick={e => e.preventDefault()}>
-                Action
-              </DropdownItem>
-              <DropdownItem href="#pablo" onClick={e => e.preventDefault()}>
-                Another action
-              </DropdownItem>
-              <DropdownItem href="#pablo" onClick={e => e.preventDefault()}>
-                Something else here
-              </DropdownItem>
-              <DropdownItem divider></DropdownItem>
-              <DropdownItem href="#pablo" onClick={e => e.preventDefault()}>
-                Separated link
-              </DropdownItem>
-              <DropdownItem divider></DropdownItem>
-              <DropdownItem href="#pablo" onClick={e => e.preventDefault()}>
-                One more separated link
-              </DropdownItem>
-            </DropdownMenu>
+            
           </UncontrolledDropdown>
           <div className="navbar-translate">
             <NavbarBrand
@@ -93,9 +60,7 @@ function ExamplesNavbar() {
             >
               Your Wellness
             </NavbarBrand>
-            {/* <UncontrolledTooltip target="#navbar-brand">
-              JUST THE TOOLTIP HERE
-            </UncontrolledTooltip> */}
+
 
             <button
               className="navbar-toggler navbar-toggler"
@@ -118,28 +83,16 @@ function ExamplesNavbar() {
             navbar
           >
             <Nav navbar>
-              <NavItem>
-                <NavLink to="/index" tag={Link}>
-                  This Goes Back
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="www.google.com">
-                  Link To Google
-                </NavLink>
-              </NavItem>
+
               <NavItem>
                 <NavLink
                   href="www.google.com"
                   target="_blank"
-                  id="twitter-tooltip"
+                  id="tooltip-0"
                 >
-                  <i className="fas fa-balance-scale"></i>
-                  <p className="d-lg-none d-xl-none">*</p>
+                  <i className="fas fa-home fa-3x padright"></i>
+                  <p className="d-lg-none d-xl-none">  Home</p>
                 </NavLink>
-                <UncontrolledTooltip target="#twitter-tooltip">
-                  This Goes Home
-                </UncontrolledTooltip>
               </NavItem>
               <NavItem>
                 <NavLink
@@ -147,12 +100,9 @@ function ExamplesNavbar() {
                   target="_blank"
                   id="tooltip-1"
                 >
-                  <i className="fas fa-band-aid"></i>
-                  <p className="d-lg-none d-xl-none">*</p>
+                  <i className="fas fa-balance-scale fa-3x padright"></i>
+                  <p className="d-lg-none d-xl-none">Resources</p>
                 </NavLink>
-                <UncontrolledTooltip target="#tooltip-1">
-                  Other Button
-                </UncontrolledTooltip>
               </NavItem>
               <NavItem>
                 <NavLink
@@ -160,12 +110,9 @@ function ExamplesNavbar() {
                   target="_blank"
                   id="tooltip-2"
                 >
-                  <i className="fas fa-bacon"></i>
-                  <p className="d-lg-none d-xl-none">*</p>
+                  <i className="fas fa-cogs fa-3x padright"></i>
+                  <p className="d-lg-none d-xl-none">Settings</p>
                 </NavLink>
-                <UncontrolledTooltip target="#tooltip-2">
-                  Third Button
-                </UncontrolledTooltip>
               </NavItem>
             </Nav>
           </Collapse>
