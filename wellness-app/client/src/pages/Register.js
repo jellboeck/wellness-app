@@ -46,7 +46,7 @@ function LoginPage() {
         ></div>
         <div className="content">
           <Container>
-            <Col className="ml-auto mr-auto" md="4">
+            <Col className="ml-auto mr-auto" md="6">
               <Card className="card-login card-plain">
                 <Form action="" className="form" method="">
                   <CardHeader className="text-center">
@@ -55,7 +55,7 @@ function LoginPage() {
                     <Link to="/index">
                       <img
                         alt="..."
-                        className="n-logo"
+                        className="n-logo logocenter"
                         src={require("assets/img/logo1.png")}
                       ></img>
                     </Link>

@@ -49,12 +49,19 @@
   }
 
   .n-logo {
+    display: block;
     max-width: 300px;
     margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
+
+  
   }
   
+  .logocenter{
+    width: 100%;
+  }
+
   .brand{
     padding-top: 230px;
   }
@@ -66,3 +73,9 @@
   .padright{
     padding-right: 10px;
   }
+
+  /* .login-page .card-login {
+  max-width: 75%;
+  min-width: 75%;
+  width: 400px;
+  } */

@@ -1,9 +1,12 @@
 import React from "react";
-
+// import SmallStats from "../charts/SmallStats";
+// import { Container, Row, Col } from "shards-react";
 // reactstrap components
-import { Container } from "reactstrap";
-
+import { Container} from "reactstrap";
 // core components
+// import UserGoals from "pages/Profile.js";
+import Goals from "components/userGoals.js";
+
 
 function ProfilePageHeader() {
   let pageHeader = React.createRef();
@@ -33,14 +36,17 @@ function ProfilePageHeader() {
             backgroundImage: "url(" + require("assets/img/header.jpg") + ")"
           }}
           ref={pageHeader}
+          
         ></div>
+
         <Container>
           <div className="photo-container">
             <img alt="..." src={require("assets/img/avatar.png")}></img>
           </div>
           <h3 className="title">Ron Johnson</h3>
           <p className="category">Developer</p>
-          <div className="content">
+          
+          {/* <div className="content">
             <div className="social-description">
               <h2>26</h2>
               <p>BMI %</p>
@@ -53,11 +59,20 @@ function ProfilePageHeader() {
               <h2>48</h2>
               <p>Else</p>
             </div>
-          </div>
+          </div> */}
+
+        <Goals />
+
+
         </Container>
+
       </div>
     </>
   );
+
+  
 }
+
+
 
 export default ProfilePageHeader;

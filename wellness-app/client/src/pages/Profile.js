@@ -147,10 +147,21 @@ Enter a few simple lines about your motivation to meet your goals!
             </Row>
           </Container>
 
+
+
+
         <DefaultFooter />
       </div>
     </>
   );
 }
+
+
+
+
+
+
+
+
 
 export default ProfilePage;

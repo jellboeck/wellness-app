@@ -1,7 +1,8 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 // reactstrap components
 import {
+  Button,
   Collapse,
   // DropdownToggle,
   // DropdownMenu,
@@ -10,7 +11,7 @@ import {
   NavbarBrand,
   Navbar,
   NavItem,
-  NavLink,
+  // NavLink,
   Nav,
   Container,
   // UncontrolledTooltip
@@ -83,36 +84,42 @@ function ExamplesNavbar() {
             navbar
           >
             <Nav navbar>
+              <NavItem>
 
-              <NavItem>
-                <NavLink
-                  href="www.google.com"
-                  target="_blank"
-                  id="tooltip-0"
+
+                <Button
+                color="default"
+                to="/index"
+                outline
+                size="lg"
+                tag={Link}
                 >
-                  <i className="fas fa-home fa-3x padright"></i>
+                  <i className="fas fa-home fa-2x padright"></i>
                   <p className="d-lg-none d-xl-none">  Home</p>
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink
-                  href="google.com"
-                  target="_blank"
-                  id="tooltip-1"
+                </Button>
+
+                <Button
+                color="default"
+                to="/index"
+                outline
+                size="lg"
+                tag={Link}
                 >
-                  <i className="fas fa-balance-scale fa-3x padright"></i>
-                  <p className="d-lg-none d-xl-none">Resources</p>
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink
-                  href="googole.com"
-                  target="_blank"
-                  id="tooltip-2"
+                <i className="fas fa-balance-scale fa-2x padright"></i>
+                <p className="d-lg-none d-xl-none">Resources</p>
+                </Button>
+
+                <Button
+                color="default"
+                to="/settings"
+                outline
+                size="lg"
+                tag={Link}
                 >
-                  <i className="fas fa-cogs fa-3x padright"></i>
-                  <p className="d-lg-none d-xl-none">Settings</p>
-                </NavLink>
+                <i className="fas fa-cogs fa-2x padright"></i>
+                <p className="d-lg-none d-xl-none">Settings</p>
+                </Button>
+
               </NavItem>
             </Nav>
           </Collapse>
