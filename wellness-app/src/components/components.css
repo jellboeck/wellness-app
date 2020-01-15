@@ -1,11 +1,29 @@
 .sign-up-logo{
     z-index: 2;
-
   }
 
 .container {
     padding-left: 0px;
 }
+
+h5{
+margin-bottom: 5px;
+text-decoration: underline;
+color: black;
+}
+
+.navbar-translate{
+  max-height: 85px;
+}
+
+h6{
+  color:green;
+  font-weight: bold;
+  }
+
+  .card {
+    border-radius: .5rem;
+  }
 
 .card-signup{
     border-radius: 50px;
@@ -42,19 +60,32 @@
   
   .btn-lg[class*="btn-outline-"] {
     padding: 14px 47px;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    text-decoration: underline;
     font-weight: bolder;
     border: none;
   }
 
   .n-logo {
+    display: block;
     max-width: 300px;
     margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
   }
   
+  .logocenter{
+    width: 100%;
+  }
+
   .brand{
     padding-top: 230px;
   }
-  
+
+  .sidebar-collapse [class*="navbar-expand-"] .navbar-collapse {
+      width: 300px;
+  }
+
+  .padright{
+    padding-right: 10px;
+  }

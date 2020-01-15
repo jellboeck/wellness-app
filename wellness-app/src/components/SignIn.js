@@ -31,20 +31,18 @@ function SignIn() {
           backgroundImage: "url(" + require("assets/img/wellness.jpg") + ")",
           backgroundSize: "110% 100%",
           backgroundPosition: "top center",
-          minHeight: "500px"
+          minHeight: "600px"
         }}
       >
         <Container>
           <Row>
-            <Card className="card-signup" >
+            <Card className="card-signup clear" >
               <Form action="" className="form" method="">
+
                 <CardHeader className="text-center">
-                  {/* <CardTitle className="title-up" tag="h3">
-                    Sign In
-                  </CardTitle> */}
-                  <div className="social-line">
-                  </div>
+
                 </CardHeader>
+
                 <CardBody>
 
                   <InputGroup
@@ -97,20 +95,32 @@ function SignIn() {
                     Sign In
                   </Button>
                   <div className="col text-center">
+                  <Button
+                    className="btn-round btn-white"
+                    color="default"
+                    to="/sign-up"
+                    outline
+                    size="lg"
+                    tag={Link}
+                  >
+                    Or Sign Up
+                  </Button>
+
             <Button
               className="btn-round btn-white"
               color="default"
-              to="/sign-up"
+              to="/profile"
               outline
               size="lg"
               tag={Link}
             >
-              Or Sign Up
+              Profile
             </Button>
-          </div>
+
+            </div>
+
                 </CardFooter>
-                
-              </Form>
+                </Form>
             </Card>
           </Row>
         </Container>
