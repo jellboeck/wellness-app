@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import axios from 'axios';
 // reactstrap components
 import {
   Button,
@@ -20,9 +21,15 @@ import {
 // import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
 import TransparentFooter from "components/Footers/TransparentFooter.js";
 
+
+
 function LoginPage() {
   const [emailFocus, setEmailFocus] = React.useState(false);
   const [passwordFocus, setPasswordFocus] = React.useState(false);
+  
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+  
   React.useEffect(() => {
     document.body.classList.add("login-page");
     document.body.classList.add("sidebar-collapse");
@@ -34,6 +41,42 @@ function LoginPage() {
       document.body.classList.remove("sidebar-collapse");
     };
   });
+  
+  const handleSignUp = () => {
+    console.log('logging in');
+    // check for entry of email
+    if (!email) {
+      alert("Fill out your email please!");
+      //check password for sufficient complexity
+    } else if (password.length < 6) {
+      alert(
+        `Choose a more secure password ${email}`
+      );
+    } else {
+      // if email and password present and password if correct length, post user information
+      alert(`Hello ${email}`);
+      axios({
+        method: 'POST',
+        url: '/api/Form',
+        // test code
+        // data: {email: 'email@email2.com', password: '123456901591'}
+        data: { email: email, password: password }
+      })
+      // change to main page
+      .then(function (data) {
+        window.location.replace("/");
+      })
+      // if error, handle by throwing err
+      .catch(function(err){
+        console.log(err);
+      });
+    }
+    // reset form
+    setEmail('');
+    setPassword('')
+  };
+  
+  
   return (
     <>
       {/* <ExamplesNavbar /> */}
@@ -79,6 +122,8 @@ function LoginPage() {
                       type="text"
                       onFocus={() => setEmailFocus(true)}
                       onBlur={() => setEmailFocus(false)}
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                     ></Input>
                   </InputGroup>
 
@@ -99,6 +144,8 @@ function LoginPage() {
                       type="password"
                       onFocus={() => setPasswordFocus(true)}
                       onBlur={() => setPasswordFocus(false)}
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                     ></Input>
                   </InputGroup>
 
@@ -111,7 +158,7 @@ function LoginPage() {
                       className="btn-neutral btn-round"
                       color="info"
                       href="#pablo"
-                      onClick={e => e.preventDefault()}
+                      onClick={() => handleSignUp()}
                       size="lg"
                     >
                       Get Started

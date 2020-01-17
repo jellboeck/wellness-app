@@ -2,29 +2,30 @@ console.log('server');
 
 const express = require("express");
 const session = require("express-session");
-const path = require("path");
-const PORT = process.env.PORT || 3001;
-const app = express();
-
 // passport required as configured
 var passport = require("./config/passport");
-
-// Define middleware here
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-// Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
+const path = require("path");
+const PORT = process.env.PORT || 3001;
 
 var db = require("./models");
+
+// Define middleware here
+const app = express();
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // use sessions to keep track of user's login status
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Define API routes here
+//require api routing
+require("./routes/api-routes.js")(app);
+
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 
 // Send every other request to the React app
 // Define any API routes before this runs
