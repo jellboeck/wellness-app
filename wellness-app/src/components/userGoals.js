@@ -10,7 +10,7 @@ const userGoals = ({ smallStats }) => (
     {/* Small Stats Blocks */}
     <Row>
       {smallStats.map((stats, idx) => (
-        <Col className="col-lg mb-4" key={idx} {...stats.attrs}>
+        <Col className="col-md-6 smallStats" key={idx} {...stats.attrs}>
           <SmallStats
             id={`small-stats-${idx}`}
             variation="1"
@@ -20,7 +20,7 @@ const userGoals = ({ smallStats }) => (
             value={stats.value}
             percentage={stats.percentage}
             increase={stats.increase}
-            decrease={stats.decrease}
+            // decrease={stats.decrease}
           />
         </Col>
       ))}

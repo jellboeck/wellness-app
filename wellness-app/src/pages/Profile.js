@@ -18,6 +18,8 @@ import {
 import ProfileNavbar from "components/Navbars/Navbar.js";
 import ProfilePageHeader from "components/Headers/ProfilePageHeader.js";
 import DefaultFooter from "components/Footers/DefaultFooter.js";
+import BMIcalc from "components/BMIcalc.js";
+import Steps from "components/Steps.js";
 
 function ProfilePage() {
   const [pills, setPills] = React.useState("2");
@@ -39,26 +41,37 @@ function ProfilePage() {
           <Container>
 
           <h3 className="title">My Goals</h3>
-            <h5 className="description" id="goals">
+            <h4 className="description" id="goals">
             <div className="content">
-            <div className="social-description">
+            <div className="social-description" id="bmigoal">
               <h2>20</h2>
               <p>BMI %</p>
             </div>
-            <div className="social-description">
-              <h2>20</h2>
-              <p>Something</p>
-            </div>
-            <div className="social-description">
+
+            <div className="social-description" id="stepgoal">
               <h2>30</h2>
-              <p>Else</p>
+              <p>Steps</p>
             </div>
+          </div>
+            </h4>
+
+            <h3 className="title">Update Progress</h3>
+
+            <h5 className="description" id="goals">
+            <div >
+            <div >
+            <BMIcalc />
+            </div>
+
+            <div >
+            <Steps />
+            </div>
+
           </div>
             </h5>
 
-
             <h3 className="title">My Motivation</h3>
-            <h5 className="description" id="lblEmp">
+            <h5 className="description" id="myMotivation">
 Enter a few simple lines about your motivation to meet your goals!
             </h5>
             <Row>
@@ -91,18 +104,7 @@ Enter a few simple lines about your motivation to meet your goals!
                           setPills("2");
                         }}
                       >
-                        <i className="now-ui-icons media-2_sound-wave"></i>
-                      </NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink
-                        className={pills === "3" ? "active" : ""}
-                        href="#pablo"
-                        onClick={e => {
-                          e.preventDefault();
-                          setPills("3");
-                        }}
-                      >
+
                         <i className="now-ui-icons sport_user-run"></i>
                       </NavLink>
                     </NavItem>
@@ -114,16 +116,6 @@ Enter a few simple lines about your motivation to meet your goals!
               <TabContent className="gallery" activeTab={"pills" + pills}>
 
                 <TabPane tabId="pills1">
-                  <Col className="ml-auto mr-auto" md="10">
-                    <Row className="collections">
-                      <Col md="6">
-{/* metrics Here */}
-                      </Col>
-                    </Row>
-                  </Col>
-                </TabPane>
-
-                <TabPane tabId="pills2">
                   <Col className="ml-auto mr-auto" md="10">
                     <Row className="collections">
                       <Col md="6">

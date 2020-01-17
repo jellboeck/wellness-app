@@ -41,7 +41,8 @@ function IndexHeader() {
               src={require("assets/img/logo1.png")}
             ></img>
             <h1 className="h1-seo">WELLNESS</h1>
-            <h3>A guide to a healthier you</h3>
+            <h3 className="h3-seo">A guide to</h3>
+            <h2 className="h2-seo">A Healthier You</h2>
           </div>
         </Container>
       </div>

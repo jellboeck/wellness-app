@@ -9,28 +9,28 @@ import {
   Container,
 } from "reactstrap";
 
-function ExamplesNavbar() {
-  const [navbarColor, setNavbarColor] = React.useState("navbar-dark");
+function SettingsNav() {
+  // const [setNavbarColor] = React.useState("navbar-dark");
   const [collapseOpen, setCollapseOpen] = React.useState(true);
-  React.useEffect(() => {
-    const updateNavbarColor = () => {
-      if (
-        document.documentElement.scrollTop > 399 ||
-        document.body.scrollTop > 399
-      ) {
-        setNavbarColor("");
-      } else if (
-        document.documentElement.scrollTop < 400 ||
-        document.body.scrollTop < 400
-      ) {
-        setNavbarColor("navbar-dark");
-      }
-    };
-    window.addEventListener("scroll", updateNavbarColor);
-    return function cleanup() {
-      window.removeEventListener("scroll", updateNavbarColor);
-    };
-  });
+  // React.useEffect(() => {
+  //   const updateNavbarColor = () => {
+  //     if (
+  //       document.documentElement.scrollTop > 399 ||
+  //       document.body.scrollTop > 399
+  //     ) {
+  //       setNavbarColor("");
+  //     } else if (
+  //       document.documentElement.scrollTop < 400 ||
+  //       document.body.scrollTop < 400
+  //     ) {
+  //       setNavbarColor("navbar-dark");
+  //     }
+  //   };
+  //   window.addEventListener("scroll", updateNavbarColor);
+  //   return function cleanup() {
+  //     window.removeEventListener("scroll", updateNavbarColor);
+  //   };
+  // });
   return (
     <>
       {collapseOpen ? (
@@ -42,20 +42,20 @@ function ExamplesNavbar() {
           }}
         />
       ) : null}
-      <Navbar className={"fixed-top " + navbarColor} color="warning">
+      <Navbar className="fixed-top settingsnav" >
         <Container>
           <UncontrolledDropdown className="button-dropdown">
             
           </UncontrolledDropdown>
-          <div className="navbar-translate">
+          <div className="navbar-translate ">
             <NavbarBrand
               id="navbar-brand"
             >
               Your Settings
             </NavbarBrand>
 
-             <Button className="navbtn"
-                color="warning"
+             <Button className="navbtn btnSettings"
+
                 to="/index"
 
                 size="sm"
@@ -65,8 +65,8 @@ function ExamplesNavbar() {
                   <p >  Home</p>
                 </Button>
 
-                <Button className="navbtn"
-                color="warning"
+                <Button className="navbtn btnSettings"
+
                 to="/index"
 
                 size="sm"
@@ -76,8 +76,8 @@ function ExamplesNavbar() {
                 <p >Resources</p>
                 </Button>
 
-                <Button className="navbtn"
-                color="warning"
+                <Button className="navbtn btnSettings"
+
                 to="/profile"
 
                 size="sm"
@@ -94,4 +94,4 @@ function ExamplesNavbar() {
   );
 }
 
-export default ExamplesNavbar;
+export default SettingsNav;
