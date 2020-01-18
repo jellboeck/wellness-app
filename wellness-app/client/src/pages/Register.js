@@ -155,7 +155,7 @@ function LoginPage() {
                       block
                       className="btn-neutral btn-round"
                       color="info"
-                      href="#pablo"
+                      href="#none"
                       onClick={() => handleSignUp()}
                       size="lg"
                     >

@@ -1,28 +1,15 @@
 import React from "react";
 
-// reactstrap components
-import {
-  // Button,
-  NavItem,
-  NavLink,
-  Nav,
-  TabContent,
-  TabPane,
-  Container,
-  Row,
-  Col,
-  // UncontrolledTooltip
-} from "reactstrap";
+import {Container} from "reactstrap";
 
-// core components
 import ProfileNavbar from "components/Navbars/Navbar.js";
 import ProfilePageHeader from "components/Headers/ProfilePageHeader.js";
-import DefaultFooter from "components/Footers/DefaultFooter.js";
+import DarkFooter from "components/Footers/DarkFooter.js";
 import BMIcalc from "components/BMIcalc.js";
 import Steps from "components/Steps.js";
 
 function ProfilePage() {
-  const [pills, setPills] = React.useState("2");
+  // const [pills, setPills] = React.useState("2");
   React.useEffect(() => {
     document.body.classList.add("profile-page");
     document.body.classList.add("sidebar-collapse");
@@ -44,12 +31,12 @@ function ProfilePage() {
             <h4 className="description" id="goals">
             <div className="content">
             <div className="social-description" id="bmigoal">
-              <h2>20</h2>
+              <h2>20%</h2>
               <p>BMI %</p>
             </div>
 
             <div className="social-description" id="stepgoal">
-              <h2>30</h2>
+              <h2>15,000</h2>
               <p>Steps</p>
             </div>
           </div>
@@ -71,10 +58,10 @@ function ProfilePage() {
             </h5>
 
             <h3 className="title">My Motivation</h3>
-            <h5 className="description" id="myMotivation">
+            <h6 className="description" id="myMotivation">
 Enter a few simple lines about your motivation to meet your goals!
-            </h5>
-            <Row>
+            </h6>
+            {/* <Row>
               <Col className="ml-auto mr-auto" md="6">
                 <h4 className="title text-center">My Metrics</h4>
                 <div className="nav-align-center">
@@ -86,7 +73,7 @@ Enter a few simple lines about your motivation to meet your goals!
                     <NavItem>
                       <NavLink
                         className={pills === "1" ? "active" : ""}
-                        href="#pablo"
+                        href="#none"
                         onClick={e => {
                           e.preventDefault();
                           setPills("1");
@@ -98,7 +85,7 @@ Enter a few simple lines about your motivation to meet your goals!
                     <NavItem>
                       <NavLink
                         className={pills === "2" ? "active" : ""}
-                        href="#pablo"
+                        href="#none"
                         onClick={e => {
                           e.preventDefault();
                           setPills("2");
@@ -119,7 +106,7 @@ Enter a few simple lines about your motivation to meet your goals!
                   <Col className="ml-auto mr-auto" md="10">
                     <Row className="collections">
                       <Col md="6">
-{/* metrics Here */}
+metrics Here
                       </Col>
                     </Row>
                   </Col>
@@ -129,20 +116,17 @@ Enter a few simple lines about your motivation to meet your goals!
                   <Col className="ml-auto mr-auto" md="10">
                     <Row className="collections">
                       <Col md="6">
-{/* metrics Here */}
+metrics Here
                       </Col>
                     </Row>
                   </Col>
                 </TabPane>
 
               </TabContent>
-            </Row>
+            </Row> */}
           </Container>
 
-
-
-
-        <DefaultFooter />
+        <DarkFooter />
       </div>
     </>
   );
