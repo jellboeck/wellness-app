@@ -27,8 +27,7 @@ function ProfilePageHeader() {
   return (
     <>
       <div
-        className="page-header clear-filter page-header-small"
-        // filter-color="blue"
+        className="page-header "
       >
         <div
           className="page-header-image"
@@ -41,7 +40,7 @@ function ProfilePageHeader() {
 
         <Container>
           <div className="photo-container">
-            <img alt="..." src={require("assets/img/avatar.png")}></img>
+            <img alt="..." src={require("assets/img/logan.png")}></img>
           </div>
           <h3 className="title">Ron Johnson</h3>
           <p className="category">Developer</p>
