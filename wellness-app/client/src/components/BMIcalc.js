@@ -15,7 +15,6 @@ import {
   Button
 } from "shards-react";
 
-
 const userBMI = ({ BMI }) => (
   <Container fluid className="main-content-container px-2">
     
@@ -31,7 +30,7 @@ const userBMI = ({ BMI }) => (
           <GridItem xs={12} sm={4} md={4} lg={3}>
             <CustomInput
               labelText="Weight"
-              id="Weight"
+              id="lbs"
               formControlProps={{
                 fullWidth: false
               }}
@@ -41,7 +40,7 @@ const userBMI = ({ BMI }) => (
           <GridItem xs={12} sm={4} md={4} lg={3}>
             <CustomInput
               labelText="Height ft"
-              id="HeightFt"
+              id="ft"
               formControlProps={{
                 fullWidth: false
               }}
@@ -51,7 +50,7 @@ const userBMI = ({ BMI }) => (
           <GridItem xs={12} sm={4} md={4} lg={3}>
             <CustomInput
               labelText="Height in"
-              id="HeightIn"
+              id="in"
               formControlProps={{
                 fullWidth: false
               }}
@@ -60,15 +59,12 @@ const userBMI = ({ BMI }) => (
 
           </GridContainer>
 
-
-
-            <Button id="BMIbtn" 
+            <Button id="bt" 
             theme="info"
-            // onClick={calcBMI}
+            onClick={JuliasBMImagicfuntionofglorythatourentireappisbasedaround}
             >Calculate BMI</Button>
-           <h4 id="BMI%"className="title text-center">Your BMI%</h4>
-           <h5 id="bmiclass"className="title text-center"></h5>
-
+           <h4 id="BMI"className="title text-center"></h4>
+           <h6 id="bmiweight"className="title text-center"></h6>
 
           </Form>
         </Col>
@@ -77,17 +73,45 @@ const userBMI = ({ BMI }) => (
   </ListGroup>
 </Card>
 
-
   </Container>
 );
 
+    function JuliasBMImagicfuntionofglorythatourentireappisbasedaround() {
 
+      let yourlbs = parseInt(document.getElementById('lbs').value);
+      let yourft = parseInt(document.getElementById('ft').value);
+      let yourin = parseInt(document.getElementById('in').value);
+      var height = (yourft*12) + yourin
 
+        if (height && yourlbs) {
+          var BMI = (yourlbs / (height * height)) * 703
+          BMI = BMI.toFixed(1);
+          console.log(BMI);
 
-// function calcBMI() {
-//   let lbl = document.getElementById('lblEmp');
-//   let empName = document.getElementById('emp').value;
+          if (BMI < 18.5) {
+            var bmiclass = "Your weight falls within the underweight range"
+            }
+          if(BMI > 18.5 && BMI < 25){
+            var bmiclass = "Your weight falls within the normal range"
+            }
+          if (BMI > 25 && BMI < 30) {
+            var bmiclass = "Your weight falls within the overweight range"
+            }
+          if (BMI > 30) {     
+            var bmiclass = "Your weight falls in the obese range"       
+            }
+      }
+      else {
+        var BMI = "0"
+        var bmiclass = "Please complete the form in its entirety"
+        }
 
-//   lbl.innerText = empName;       // TREATS EVERY CONTENT AS TEXT.
-// }
+        let bmiperc = document.getElementById('BMI');
+        let bmistat = document.getElementById('bmiweight');
+
+        bmiperc.innerText = BMI+"%";    
+        bmistat.innerText = bmiclass;  
+
+    }
+
 export default userBMI;

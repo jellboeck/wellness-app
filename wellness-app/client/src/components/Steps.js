@@ -42,8 +42,9 @@ const userGoals = ({ steps }) => (
 
             <Button id="StepsBtn" 
             theme="info"
-            // onClick={calcSteps}
+            onClick={calcSteps}
             >Update Your Steps</Button>
+           <h4 id="stepresult"className="title text-center"></h4>
 
           </Form>
         </Col>
@@ -56,5 +57,35 @@ const userGoals = ({ steps }) => (
   </Container>
 );
 
+
+
+    function calcSteps() {
+        let totalsteps = document.getElementById('stepresult');
+        let mysteps = parseInt(document.getElementById('Steps').value);
+
+
+        if (mysteps) {
+
+          console.log("BMI");
+
+
+          if (mysteps <= 3000) {
+            var yourprogress = "You should try for at least 4000 steps"
+            }
+            if (mysteps > 3000 && mysteps <= 5000) {
+              var yourprogress = "Keep up the good work"
+              }
+              if (mysteps > 5000 && mysteps <= 10000) {
+                var yourprogress = "Your doing great! Keep up the good work"
+                }
+                if (mysteps > 10000) {
+                  var yourprogress = "Awesome! Your doing amazing"
+                  }
+      }
+      else {
+        var yourprogress = "Please enter your steps"
+        }
+        totalsteps.innerText = yourprogress;       // TREATS EVERY CONTENT AS TEXT.
+    }
 
 export default userGoals;

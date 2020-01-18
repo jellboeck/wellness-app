@@ -36,9 +36,9 @@ userGoals.defaultProps = {
 
     {
       label: "BMI%",
-      value: "29",
+      value: "31%",
       percentage: "3.8%",
-      increase: false,
+      increase: true,
       // decrease: false,
       chartLabels: [null, null, null, null, null, null, null],
       attrs: { md: "4", sm: "6" },
@@ -53,18 +53,19 @@ userGoals.defaultProps = {
         }
       ]
     },
+
     {
       label: "Steps",
-      value: "29",
-      percentage: "2.71%",
-      increase: false,
+      value: "11385",
+      // percentage: "2.71%",
+      // increase: true,
 
       chartLabels: [null, null, null, null, null, null, null],
       attrs: { md: "4", sm: "6" },
       datasets: [
         {
-          label: "Today",
-          fill: "start",
+          // label: "Today",
+          // fill: "start",
           borderWidth: 3,
           backgroundColor: "rgba(255,65,105,0.1)",
           borderColor: "rgb(255,65,105)",

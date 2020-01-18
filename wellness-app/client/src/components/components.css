@@ -138,6 +138,25 @@ padding-top: 20px;
   width: 70px;
 }
 
-/* .makeStyles-underline-107:after {
-  border-color: blue;
+.navbar-toggler{
+  background-color: transparent;
+}
+
+.face{
+color: white;
+}
+
+.underline{
+  text-decoration: underline;
+}
+
+/* .photo-container{
+  border: 2px solid gray;
+
 } */
+
+.profile-page .photo-container {
+  width: 200px;
+  height: 200px;
+  border: 3px solid gray;
+}
