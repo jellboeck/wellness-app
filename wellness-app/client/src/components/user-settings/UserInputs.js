@@ -40,7 +40,7 @@ function UserInputSettings(props, { title }) {
       console.log(data);
       setFirstname(data.data.firstname);
       setLastname(data.data.lastname);
-      setEmail(data.data.email);
+      setEmail(props.user);
       setAddress(data.data.address);
       setCity(data.data.city);
       setState(data.data.state);
@@ -62,7 +62,7 @@ function UserInputSettings(props, { title }) {
       data: {
         firstname: firstname,
         lastname: lastname,
-        email: email,
+        email: props.user,
         //  password: password,
         address: address,
         city: city,
