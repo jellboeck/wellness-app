@@ -50,7 +50,7 @@ function SignIn(props) {
         .then(function (data) {
           console.log('data');
           console.log(data);
-          window.location.replace("/index");
+          window.location.replace("/profile");
         })
         // if error, handle by throwing err
         .catch(function (err) {

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from 'axios';
 // import SmallStats from "../charts/SmallStats";
 // import { Container, Row, Col } from "shards-react";
 // reactstrap components
@@ -10,6 +11,29 @@ import Goals from "components/userGoals.js";
 
 function ProfilePageHeader() {
   let pageHeader = React.createRef();
+
+  const [firstname, setFirstname] = useState('');
+  const [lastname, setLastname] = useState('');
+
+  function getUserProfile() {
+    axios.get('/api/user_profile').then(function(data){
+      console.log('profile data pro head');
+      console.log(data.data.email);
+      console.log(data.data.motivation);
+      setFirstname(data.data.firstname);
+      setLastname(data.data.lastname);
+      // setEmail(data.data.email);
+      // setAddress(data.data.address);
+      // setCity(data.data.city);
+      // setState(data.data.state);
+      // setZip(data.data.zip);
+      // setMotivation(data.data.motivation);
+      // setHeight(data.data.height);
+      // setWeight(data.data.weight);
+    });
+  }
+
+  getUserProfile();
 
   // React.useEffect(() => {
   //   if (window.innerWidth > 991) {
@@ -42,7 +66,7 @@ function ProfilePageHeader() {
           <div className="photo-container">
             <img alt="..." src={require("assets/img/logan.png")}></img>
           </div>
-          <h3 className="title">Ron Johnson</h3>
+          <h3 className="title"> {firstname} <span> </span> {lastname} </h3>
           <p className="category">Developer</p>
           
 
