@@ -5,7 +5,9 @@ import IndexHeader from "components/Headers/IndexHeader.js";
 import DarkFooter from "components/Footers/DarkFooter.js";
 import SignIn from "components/SignIn.js";
 
-function Index() {
+function Index(props) {
+  console.log('Index');
+  console.log(props);
   React.useEffect(() => {
     document.body.classList.add("index-page");
     document.body.classList.add("sidebar-collapse");
@@ -17,6 +19,7 @@ function Index() {
       document.body.classList.remove("sidebar-collapse");
     };
   });
+  // props.getUser();
   return (
     <>
       {/* <IndexNavbar /> */}

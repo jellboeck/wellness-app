@@ -8,8 +8,11 @@ import DarkFooter from "components/Footers/DarkFooter.js";
 import BMIcalc from "components/BMIcalc.js";
 import Steps from "components/Steps.js";
 
-function ProfilePage() {
-  // const [pills, setPills] = React.useState("2");
+function ProfilePage(props) {
+  console.log('profile');
+  console.log(props);
+  props.getUser();
+  const [pills, setPills] = React.useState("2");
   React.useEffect(() => {
     document.body.classList.add("profile-page");
     document.body.classList.add("sidebar-collapse");
@@ -21,7 +24,7 @@ function ProfilePage() {
   });
   return (
     <>
-      <ProfileNavbar />
+      <ExamplesNavbar {...props} getUser={props.getUser}/>
       <div className="wrapper">
         <ProfilePageHeader />
     
@@ -34,20 +37,9 @@ function ProfilePage() {
               <h2>20%</h2>
               <p>BMI %</p>
             </div>
-
-            <div className="social-description" id="stepgoal">
-              <h2>15,000</h2>
-              <p>Steps</p>
-            </div>
-          </div>
-            </h4>
-
-            <h3 className="title">Update Progress</h3>
-
-            <h5 className="description" id="goals">
-            <div >
-            <div >
-            <BMIcalc />
+            <div className="social-description">
+              <h2>Heloo</h2>
+              <p>{props.user}</p>
             </div>
 
             <div >

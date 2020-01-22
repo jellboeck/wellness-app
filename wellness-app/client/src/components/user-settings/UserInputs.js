@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from 'axios';
 import PropTypes from "prop-types";
 
 import GridItem from "components/Grid/GridItem.js";
@@ -13,143 +14,354 @@ import {
   Col,
   Form,
   Container,
+  FormGroup,
+  FormInput,
   FormTextarea,
   Button
 } from "shards-react";
 
-const UserInputSettings = ({ title }) => (
-  
-  <Container>
-  <Card small className="mb-4">
-    <ListGroup flush>
-      <ListGroupItem className="p-3">
-        <Row>
-          <Col>
-            <Form>
+function UserInputSettings(props, { title }) {
+
+  const [firstname, setFirstname] = useState('John');
+  const [lastname, setLastname] = useState('Smith');
+  const [email, setEmail] = useState('john@smith.com');
+  // const [password, setPassword] = useState('');
+  const [address, setAddress] = useState('321 Whatsup Avenue');
+  const [city, setCity] = useState('NoWhere');
+  const [state, setState] = useState('MO');
+  const [zip, setZip] = useState('65201');
+  const [motivation, setMotivation] = useState('Lack of');
+  const [height, setHeight] = useState('72');
+  const [weight, setWeight] = useState('190');
+
+  function getUserProfile() {
+    axios.get('/api/user_profile').then(function (data) {
+      console.log('profile data');
+      console.log(data);
+      setFirstname(data.data.firstname);
+      setLastname(data.data.lastname);
+      setEmail(data.data.email);
+      setAddress(data.data.address);
+      setCity(data.data.city);
+      setState(data.data.state);
+      setZip(data.data.zip);
+      setMotivation(data.data.motivation);
+      setHeight(data.data.height);
+      setWeight(data.data.weight);
+    });
+  }
+
+  // send new profile data to database
+  function handleUpdateProfile() {
+    console.log('updating profile');
+    axios({
+      method: 'PUT',
+      url: '/api/update_profile',
+      // test code
+      // data: {email: 'email@email2.com', password: '123456901591'}
+      data: {
+        firstname: firstname,
+        lastname: lastname,
+        email: email,
+        //  password: password,
+        address: address,
+        city: city,
+        state: state,
+        zip: zip,
+        motivation: motivation,
+        height: height,
+        weight: weight
+
+      }
+    })
+      // get new data to display
+      .then(function (data) {
+        console.log('data');
+        console.log(data);
+        // window.location.replace("/index");
+      })
+      // if error, handle by throwing err
+      .catch(function (err) {
+        console.log(err);
+      });
+    // getUserProfile();
+  }
+
+  return (
+    <Container>
+      <Card small className="mb-4">
+        <ListGroup flush>
+          <ListGroupItem className="p-3">
+            <Row>
+              <Col>
+                <Form>
 
 
-            <GridContainer>
-            <GridItem xs={12} sm={4} md={4} lg={3}>
-              <CustomInput
-                labelText="First Name"
-                id="FirstName"
-                formControlProps={{
-                  fullWidth: false
-                }}
-              />
-            </GridItem>
+                  {/* <GridContainer>
+                    <GridItem xs={12} sm={4} md={4} lg={3}>
+                      <CustomInput
+                        labelText="First Name"
+                        id="FirstName"
+                        value={firstname}
+                        onChange={e => setFirstname(e.target.value)}
+                        formControlProps={{
+                          fullWidth: false
+                        }}
+                      />
+                    </GridItem>
 
-            <GridItem xs={12} sm={4} md={4} lg={3}>
-              <CustomInput
-                labelText="Last Name"
-                id="LastName"
-                formControlProps={{
-                  fullWidth: false
-                }}
-              />
-            </GridItem>
+                    <GridItem xs={12} sm={4} md={4} lg={3}>
+                      <CustomInput
+                        labelText="Last Name"
+                        id="LastName"
+                        value={lastname}
+                        onChange={e => setLastname(e.target.value)}
+                        formControlProps={{
+                          fullWidth: false
+                        }}
+                      />
+                    </GridItem>
 
-            <GridItem xs={12} sm={4} md={4} lg={3}>
-              <CustomInput
-                labelText="Email"
-                id="Email"
-                formControlProps={{
-                  fullWidth: false
-                }}
-              />
-            </GridItem>
+                    <GridItem xs={12} sm={4} md={4} lg={3}>
+                      <CustomInput
+                        labelText="Email"
+                        id="Email"
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
+                        formControlProps={{
+                          fullWidth: false
+                        }}
+                      />
+                    </GridItem>
 
-            <GridItem xs={12} sm={4} md={4} lg={3}>
-              <CustomInput
-                labelText="Address"
-                id="HomeAddress"
-                formControlProps={{
-                  fullWidth: false
-                }}
-              />
-            </GridItem>
+                    <GridItem xs={12} sm={4} md={4} lg={3}>
+                      <CustomInput
+                        labelText="Address"
+                        id="HomeAddress"
+                        value={address}
+                        onChange={e => setAddress(e.target.value)}
+                        formControlProps={{
+                          fullWidth: false
+                        }}
+                      />
+                    </GridItem>
 
-            <GridItem xs={12} sm={4} md={4} lg={3}>
-              <CustomInput
-                labelText="City"
-                id="City"
-                formControlProps={{
-                  fullWidth: false
-                }}
-              />
-            </GridItem>
+                    <GridItem xs={12} sm={4} md={4} lg={3}>
+                      <CustomInput
+                        labelText="City"
+                        id="City"
+                        value={city}
+                        onChange={e => setCity(e.target.value)}
+                        formControlProps={{
+                          fullWidth: false
+                        }}
+                      />
+                    </GridItem>
 
-            <GridItem xs={12} sm={4} md={4} lg={3}>
-              <CustomInput
-                labelText="State"
-                id="State"
-                formControlProps={{
-                  fullWidth: false
-                }}
-              />
-            </GridItem>
+                    <GridItem xs={12} sm={4} md={4} lg={3}>
+                      <CustomInput
+                        labelText="State"
+                        id="State"
+                        value={state}
+                        onChange={e => setState(e.target.value)}
+                        formControlProps={{
+                          fullWidth: false
+                        }}
+                      />
+                    </GridItem>
 
-            <GridItem xs={12} sm={4} md={4} lg={3}>
-              <CustomInput
-                labelText="Zip Code"
-                id="ZipCode"
-                formControlProps={{
-                  fullWidth: false
-                }}
-              />
-            </GridItem>
+                    <GridItem xs={12} sm={4} md={4} lg={3}>
+                      <CustomInput
+                        labelText="Zip Code"
+                        id="ZipCode"
+                        value={zip}
+                        onChange={e => setZip(e.target.value)}
+                        formControlProps={{
+                          fullWidth: false
+                        }}
+                      />
+                    </GridItem>
 
-            <GridItem xs={12} sm={4} md={4} lg={3}>
-              <CustomInput
-                labelText="Height ft"
-                id="HeightFt"
-                formControlProps={{
-                  fullWidth: false
-                }}
-              />
-            </GridItem>
+                    <GridItem xs={12} sm={4} md={4} lg={3}>
+                      <CustomInput
+                        labelText="Height ft"
+                        id="HeightFt"
+                        formControlProps={{
+                          fullWidth: false
+                        }}
+                      />
+                    </GridItem>
 
-            <GridItem xs={12} sm={4} md={4} lg={3}>
-              <CustomInput
-                labelText="Height in"
-                id="HeightIn"
-                formControlProps={{
-                  fullWidth: false
-                }}
-              />
-            </GridItem>
+                    <GridItem xs={12} sm={4} md={4} lg={3}>
+                      <CustomInput
+                        labelText="Height in"
+                        id="HeightIn"
+                        value={height}
+                        onChange={e => setHeight(e.target.value)}
+                        formControlProps={{
+                          fullWidth: false
+                        }}
+                      />
+                    </GridItem>
 
-            <GridItem xs={12} sm={4} md={4} lg={3}>
-              <CustomInput
-                labelText="Weight lbs"
-                id="Weightlbs"
-                formControlProps={{
-                  fullWidth: false
-                }}
-              />
-            </GridItem>
+                    <GridItem xs={12} sm={4} md={4} lg={3}>
+                      <CustomInput
+                        labelText="Weight lbs"
+                        id="Weightlbs"
+                        value={weight}
+                        onChange={e => setWeight(e.target.value)}
+                        formControlProps={{
+                          fullWidth: false
+                        }}
+                      />
+                    </GridItem>
 
-            </GridContainer>
+                  </GridContainer>
 
-              <Row form>
-                <Col md="12" className="form-group">
-                  <label id="other">Your Motivation</label>
-                  <FormTextarea id="emp" rows="5" />
-                </Col>
-              </Row>
-              <Button className="btnSettings" id="change" 
-              theme="muted"
-              // onClick={changeLabel}
-              >Update Account</Button>
-             
-            </Form>
-          </Col>
-        </Row>
-      </ListGroupItem>
-    </ListGroup>
-  </Card>
-  </Container>
-);
+                  <Row form>
+                    <Col md="12" className="form-group">
+                      <label id="other">Your Motivation</label>
+
+                      <FormTextarea id="emp" rows="5" />
+                    </Col>
+                  </Row>
+                  <Button className="btnSettings" id="change"
+                    theme="muted"
+                    onClick={() => handleUpdateProfile()}
+                  >Update Account</Button> */}
+                 <Row form>
+                    {/* First Name */}
+                    <Col md="6" className="form-group">
+                      <label htmlFor="feFirstName">First Name</label>
+                      <FormInput
+                        id="feFirstName"
+                        placeholder="First Name"
+                        value={firstname}
+                        onChange={e => setFirstname(e.target.value)}
+                      />
+                    </Col>
+                    {/* Last Name */}
+                    <Col md="6" className="form-group">
+                      <label htmlFor="feLastName">Last Name</label>
+                      {/* <FormSelect id="feInputState">
+                      <option>Choose...</option>
+                      <option>...</option>
+                    </FormSelect> */}
+                      <FormInput
+                        // <FormInput
+                        id="feLastName"
+                        placeholder="Last Name"
+                        value={lastname}
+                        // onChange={() => { }}
+                        onChange={e => setLastname(e.target.value)}
+                      // onClick={e => setState(e.target.value)}
+                      />
+                    </Col>
+                   
+                  </Row>
+                 
+                  <FormGroup>
+                    <label htmlFor="feAddress">Address</label>
+                    <FormInput
+                      id="feAddress"
+                      placeholder="Address"
+                      value={address}
+                      onChange={e => setAddress(e.target.value)}
+                    />
+                  </FormGroup>
+                  <Row form>
+                    {/* City */}
+                    <Col md="6" className="form-group">
+                      <label htmlFor="feCity">City</label>
+                      <FormInput
+                        id="feCity"
+                        placeholder="City"
+                        value={city}
+                        onChange={e => setCity(e.target.value)}
+                      />
+                    </Col>
+                    {/* State */}
+                    <Col md="4" className="form-group">
+                      <label htmlFor="feInputState">State</label>
+                      {/* <FormSelect id="feInputState">
+                      <option>Choose...</option>
+                      <option>...</option>
+                    </FormSelect> */}
+                      <FormInput
+                        // <FormInput
+                        id="feState"
+                        placeholder="State"
+                        value={state}
+                        // onChange={() => { }}
+                        onChange={e => setState(e.target.value)}
+                      // onClick={e => setState(e.target.value)}
+                      />
+                    </Col>
+                    {/* Zip Code */}
+                    <Col md="2" className="form-group">
+                      <label htmlFor="feZipCode">Zip Code</label>
+                      <FormInput
+                        id="feZipCode"
+                        placeholder="Zip"
+                        value={zip}
+                        onChange={e => setZip(e.target.value)}
+                      />
+                    </Col>
+                  </Row>
+                  <Row form>
+                    {/* City */}
+                    <Col md="3" className="form-group">
+                      <label htmlFor="feHeight">Height</label>
+                      <FormInput
+                        id="feHeight"
+                        placeholder="Height"
+                        value={height}
+                        onChange={e => setHeight(e.target.value)}
+                      />
+                    </Col>
+                    {/* State */}
+                    <Col md="3" className="form-group">
+                      <label htmlFor="feWeight">State</label>
+                      {/* <FormSelect id="feInputState">
+                      <option>Choose...</option>
+                      <option>...</option>
+                    </FormSelect> */}
+                      <FormInput
+                        // <FormInput
+                        id="feWeight"
+                        placeholder="Weight"
+                        value={weight}
+                        // onChange={() => { }}
+                        onChange={e => setWeight(e.target.value)}
+                      // onClick={e => setState(e.target.value)}
+                      />
+                    </Col>
+                    {/* Zip Code */}
+                    <Col md="6" className="form-group">
+                      <label htmlFor="feMotivation">Motivation</label>
+                      <FormInput
+                        id="feMotivation"
+                        placeholder="Motivation"
+                        value={motivation}
+                        onChange={e => setMotivation(e.target.value)}
+                      />
+                    </Col>
+                  </Row>
+
+                  <Button
+                    theme="accent"
+                    onClick={() => handleUpdateProfile()}
+
+                  >Update Account</Button>
+                </Form>
+              </Col>
+            </Row>
+          </ListGroupItem>
+        </ListGroup>
+      </Card>
+    </Container>
+  );
+}
 
 
 
