@@ -24,7 +24,7 @@ function ProfilePage(props) {
   });
   return (
     <>
-      <ExamplesNavbar {...props} getUser={props.getUser}/>
+      <ProfileNavbar {...props} getUser={props.getUser}/>
       <div className="wrapper">
         <ProfilePageHeader />
     
@@ -47,7 +47,7 @@ function ProfilePage(props) {
             </div>
 
           </div>
-            </h5>
+            </h4>
 
             <h3 className="title">My Motivation</h3>
             <h6 className="description" id="myMotivation">
