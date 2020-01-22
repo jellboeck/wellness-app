@@ -3,8 +3,11 @@ import { Container, Row, Col } from "shards-react";
 
 import SmallStats from "../components/charts/SmallStats";
 
-const userGoals = ({ smallStats }) => (
-  <Container fluid className="main-content-container px-4">
+function userGoals({ smallStats }, props) {
+  console.log('user goals');
+  console.log(props);
+  return (
+    <Container fluid className="main-content-container px-4">
     {/* Page Header */}
 
     {/* Small Stats Blocks */}
@@ -21,7 +24,7 @@ const userGoals = ({ smallStats }) => (
             percentage={stats.percentage}
             increase={stats.increase}
             // decrease={stats.decrease}
-          />
+            />
         </Col>
       ))}
     </Row>
@@ -29,7 +32,8 @@ const userGoals = ({ smallStats }) => (
       {/* Users Overview */}
     
   </Container>
-);
+)
+};
 
 userGoals.defaultProps = {
   smallStats: [

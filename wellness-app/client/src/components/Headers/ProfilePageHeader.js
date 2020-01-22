@@ -9,7 +9,7 @@ import { Container} from "reactstrap";
 import Goals from "components/userGoals.js";
 
 
-function ProfilePageHeader() {
+function ProfilePageHeader(props) {
   let pageHeader = React.createRef();
 
   const [firstname, setFirstname] = useState('');
@@ -70,7 +70,7 @@ function ProfilePageHeader() {
           <p className="category">Developer</p>
           
 
-        <Goals />
+        <Goals {...props} getUser={props.getUser} user = {props.user} loggedIn={props.loggedIn}/>
 
 
         </Container>

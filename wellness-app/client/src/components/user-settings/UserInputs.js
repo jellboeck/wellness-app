@@ -22,17 +22,18 @@ import {
 
 function UserInputSettings(props, { title }) {
 
-  const [firstname, setFirstname] = useState('John');
-  const [lastname, setLastname] = useState('Smith');
-  const [email, setEmail] = useState('john@smith.com');
+  const [firstname, setFirstname] = useState('');
+  const [lastname, setLastname] = useState('');
+  const [email, setEmail] = useState('');
   // const [password, setPassword] = useState('');
-  const [address, setAddress] = useState('321 Whatsup Avenue');
-  const [city, setCity] = useState('NoWhere');
-  const [state, setState] = useState('MO');
-  const [zip, setZip] = useState('65201');
-  const [motivation, setMotivation] = useState('Lack of');
-  const [height, setHeight] = useState('72');
-  const [weight, setWeight] = useState('190');
+  const [address, setAddress] = useState('');
+  const [city, setCity] = useState('');
+  const [state, setState] = useState('');
+  const [zip, setZip] = useState('');
+  const [motivation, setMotivation] = useState();
+  const [heightFt, setHeightFt] = useState();
+  const [heightIn, setHeightIn] = useState();
+  const [weight, setWeight] = useState();
 
   function getUserProfile() {
     axios.get('/api/user_profile').then(function (data) {
@@ -46,11 +47,13 @@ function UserInputSettings(props, { title }) {
       setState(data.data.state);
       setZip(data.data.zip);
       setMotivation(data.data.motivation);
-      setHeight(data.data.height);
+      setHeightFt(data.data.heightft);
+      setHeightIn(data.data.heightin);
       setWeight(data.data.weight);
     });
   }
 
+  // getUserProfile();
   // send new profile data to database
   function handleUpdateProfile() {
     console.log('updating profile');
@@ -69,7 +72,8 @@ function UserInputSettings(props, { title }) {
         state: state,
         zip: zip,
         motivation: motivation,
-        height: height,
+        heightft: heightFt,
+        heightin: heightIn,
         weight: weight
 
       }
@@ -311,17 +315,26 @@ function UserInputSettings(props, { title }) {
                   <Row form>
                     {/* City */}
                     <Col md="3" className="form-group">
-                      <label htmlFor="feHeight">Height</label>
+                      <label htmlFor="feHeightFt">Height</label>
                       <FormInput
-                        id="feHeight"
-                        placeholder="Height"
-                        value={height}
-                        onChange={e => setHeight(e.target.value)}
+                        id="feHeightFt"
+                        placeholder="Height feet"
+                        value={heightFt}
+                        onChange={e => setHeightFt(e.target.value)}
+                      />
+                    </Col>
+                    <Col md="3" className="form-group">
+                      <label htmlFor="feHeightIn">Height</label>
+                      <FormInput
+                        id="feHeightIn"
+                        placeholder="Height inches"
+                        value={heightIn}
+                        onChange={e => setHeightIn(e.target.value)}
                       />
                     </Col>
                     {/* State */}
                     <Col md="3" className="form-group">
-                      <label htmlFor="feWeight">State</label>
+                      <label htmlFor="feWeight">Weight</label>
                       {/* <FormSelect id="feInputState">
                       <option>Choose...</option>
                       <option>...</option>

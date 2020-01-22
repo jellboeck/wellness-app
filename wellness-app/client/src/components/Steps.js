@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from 'axios';
 
 import GridItem from "components/Grid/GridItem.js";
 import CustomInput from "components/user-settings/CustomInput.js";
@@ -16,7 +17,11 @@ import {
 } from "shards-react";
 
 
-const userGoals = ({ steps }) => (
+function userGoals({ steps }, props) {
+  console.log('user goals steps')
+  console.log(props);
+  
+return (
   <Container fluid className="main-content-container px-2">
     
 <Card className="mb-2">
@@ -35,7 +40,7 @@ const userGoals = ({ steps }) => (
               formControlProps={{
                 fullWidth: false
               }}
-            />
+              />
           </GridItem>
 
           </GridContainer>
@@ -56,6 +61,7 @@ const userGoals = ({ steps }) => (
 
   </Container>
 );
+}
 
 
 
@@ -63,6 +69,21 @@ const userGoals = ({ steps }) => (
         let totalsteps = document.getElementById('stepresult');
         let mysteps = parseInt(document.getElementById('Steps').value);
 
+        axios({
+          method: 'POST',
+          url: '/api/new_step',
+          // test code
+          // data: {email: 'email@email2.com', password: '123456901591'}
+          data: { quantity: mysteps}
+        })
+        // change to main page
+        .then(function (data) {
+          console.log('data');
+        })
+        // if error, handle by throwing err
+        .catch(function(err){
+          console.log(err);
+        });
 
         if (mysteps) {
 
