@@ -24,7 +24,7 @@ function ProfilePage(props) {
   });
   return (
     <>
-      <ProfileNavbar {...props} getUser={props.getUser}/>
+      <ProfileNavbar {...props} getUser={props.getUser} user={props.user} />
       <div className="wrapper">
         <ProfilePageHeader />
     
