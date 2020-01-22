@@ -13,7 +13,7 @@ function DefaultFooter() {
         <Container>
         <nav>
           <ul>
-            <li>
+            {/* <li>
               <a
                 href="https://www.google.com"
                 target="_blank"
@@ -36,7 +36,7 @@ function DefaultFooter() {
               >
                 BLA BLA BLA
               </a>
-            </li>
+            </li> */}
           </ul>
         </nav>
         <div className="copyright" id="copyright">

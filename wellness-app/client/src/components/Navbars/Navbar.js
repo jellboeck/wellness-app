@@ -1,20 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// reactstrap components
+
 import {
   Button,
   Collapse,
-  // DropdownToggle,
-  // DropdownMenu,
-  // DropdownItem,
   UncontrolledDropdown,
   NavbarBrand,
   Navbar,
   NavItem,
-  // NavLink,
   Nav,
   Container,
-  // UncontrolledTooltip
 } from "reactstrap";
 
 function ExamplesNavbar(props) {
@@ -55,16 +50,45 @@ function ExamplesNavbar(props) {
       <Navbar className={"fixed-top " + navbarColor} color="info" expand="lg">
         <Container>
           <UncontrolledDropdown className="button-dropdown">
-            
+            {/* <DropdownToggle
+              caret
+              data-toggle="dropdown"
+              href="#none"
+              id="navbarDropdown"
+              tag="a"
+              onClick={e => e.preventDefault()}
+            >
+              <span className="button-bar"></span>
+              <span className="button-bar"></span>
+              <span className="button-bar"></span>
+            </DropdownToggle> */}
+            {/* <DropdownMenu aria-labelledby="navbarDropdown">
+              <DropdownItem header tag="a">
+                Dropdown header
+              </DropdownItem>
+              <DropdownItem href="#none" onClick={e => e.preventDefault()}>
+                Action
+              </DropdownItem>
+              <DropdownItem href="#none" onClick={e => e.preventDefault()}>
+                Another action
+              </DropdownItem>
+              <DropdownItem href="#none" onClick={e => e.preventDefault()}>
+                Something else here
+              </DropdownItem>
+              <DropdownItem divider></DropdownItem>
+              <DropdownItem href="#none" onClick={e => e.preventDefault()}>
+                Separated link
+              </DropdownItem>
+              <DropdownItem divider></DropdownItem>
+            </DropdownMenu> */}
           </UncontrolledDropdown>
           <div className="navbar-translate">
             <NavbarBrand
+              target="_blank"
               id="navbar-brand"
             >
-              Your Wellness
+              Your Wellness Profile
             </NavbarBrand>
-
-
             <button
               className="navbar-toggler navbar-toggler"
               onClick={() => {
@@ -78,14 +102,13 @@ function ExamplesNavbar(props) {
               <span className="navbar-toggler-bar middle-bar"></span>
               <span className="navbar-toggler-bar bottom-bar"></span>
             </button>
-            
           </div>
           <Collapse
             className="justify-content-end"
             isOpen={collapseOpen}
             navbar
           >
-            <Nav navbar>
+             <Nav navbar>
               <NavItem>
 
 

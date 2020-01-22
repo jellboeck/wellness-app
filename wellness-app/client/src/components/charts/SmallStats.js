@@ -48,7 +48,7 @@ class SmallStats extends React.Component {
               scaleLabel: false,
               ticks: {
                 display: false,
-                isplay: false,
+
                 // Avoid getting the graph line cut of at the top of the canvas.
                 // Chart.js bug link: https://github.com/chartjs/Chart.js/issues/4790
                 suggestedMax: Math.max(...this.props.chartData[0].data) + 1
@@ -134,7 +134,7 @@ class SmallStats extends React.Component {
               <h6 className={valueClasses}>{value}</h6>
             </div>
             <div className={innerDataFieldClasses}>
-              <span className={percentageClasses}>{percentage}</span>
+              {/* <span className={percentageClasses}>{percentage}</span> */}
             </div>
           </div>
           <canvas

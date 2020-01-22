@@ -10,7 +10,7 @@ function DarkFooter() {
       <Container>
         <nav>
           <ul>
-            <li>
+            {/* <li>
               <a
                 href="https://www.google.com"
                 target="_blank"
@@ -33,7 +33,7 @@ function DarkFooter() {
               >
                 BLA BLA BLA
               </a>
-            </li>
+            </li> */}
           </ul>
         </nav>
         <div className="copyright" id="copyright">

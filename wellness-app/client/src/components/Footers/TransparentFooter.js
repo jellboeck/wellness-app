@@ -9,7 +9,7 @@ function TransparentFooter() {
     <footer className="footer">
       <Container>
         <nav>
-          <ul>
+          {/* <ul>
             <li>
             <a
                 href="https://www.google.com"
@@ -34,7 +34,7 @@ function TransparentFooter() {
                 BLA BLA BLA
               </a>
             </li>
-          </ul>
+          </ul> */}
         </nav>
         <div className="copyright" id="copyright">
           © {new Date().getFullYear()}, Designed by{" "}

@@ -8,7 +8,6 @@ import {
   CardHeader,
   CardBody,
   CardFooter,
-  // CardTitle,
   Form,
   Input,
   InputGroupAddon,
@@ -131,11 +130,10 @@ function SignIn(props) {
                   <Button
                     className="btn-neutral btn-round"
                     color="info"
-                    href="#pablo"
+                    href="#none"
                     onClick={() => handleSignIn()}
                     size="lg"
                   >
-
                     Sign In
                   </Button>
                   <div className="col text-center">

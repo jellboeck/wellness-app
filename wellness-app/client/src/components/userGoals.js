@@ -10,7 +10,7 @@ const userGoals = ({ smallStats }) => (
     {/* Small Stats Blocks */}
     <Row>
       {smallStats.map((stats, idx) => (
-        <Col className="col-lg mb-4" key={idx} {...stats.attrs}>
+        <Col className="col-md-6 smallStats" key={idx} {...stats.attrs}>
           <SmallStats
             id={`small-stats-${idx}`}
             variation="1"
@@ -20,7 +20,7 @@ const userGoals = ({ smallStats }) => (
             value={stats.value}
             percentage={stats.percentage}
             increase={stats.increase}
-            decrease={stats.decrease}
+            // decrease={stats.decrease}
           />
         </Col>
       ))}
@@ -36,9 +36,9 @@ userGoals.defaultProps = {
 
     {
       label: "BMI%",
-      value: "29",
+      value: "31%",
       percentage: "3.8%",
-      increase: false,
+      increase: true,
       // decrease: false,
       chartLabels: [null, null, null, null, null, null, null],
       attrs: { md: "4", sm: "6" },
@@ -53,41 +53,23 @@ userGoals.defaultProps = {
         }
       ]
     },
+
     {
-      label: "Metric 2",
-      value: "29",
-      percentage: "2.71%",
-      increase: false,
+      label: "Steps",
+      value: "11385",
+      // percentage: "2.71%",
+      // increase: true,
 
       chartLabels: [null, null, null, null, null, null, null],
       attrs: { md: "4", sm: "6" },
       datasets: [
         {
-          label: "Today",
-          fill: "start",
+          // label: "Today",
+          // fill: "start",
           borderWidth: 3,
           backgroundColor: "rgba(255,65,105,0.1)",
           borderColor: "rgb(255,65,105)",
           data: [1, 7, 1, 3, 1, 4, 8]
-        }
-      ]
-    },
-    {
-      label: "Metric 3",
-      value: "17,281",
-      percentage: "2.4%",
-      increase: true,
-
-      chartLabels: [null, null, null, null, null, null, null],
-      attrs: { md: "4", sm: "6" },
-      datasets: [
-        {
-          label: "Today",
-          fill: "start",
-          borderWidth: 3,
-          backgroundColor: "rgb(0,123,255,0.1)",
-          borderColor: "rgb(0,123,255)",
-          data: [30, 25, 55, 1, 45, 55, 45]
         }
       ]
     }

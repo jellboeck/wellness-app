@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
 import axios from 'axios';
+=======
+import React from "react";
+>>>>>>> master
 import PropTypes from "prop-types";
 
 import GridItem from "components/Grid/GridItem.js";
@@ -14,12 +18,16 @@ import {
   Col,
   Form,
   Container,
+<<<<<<< HEAD
   FormGroup,
   FormInput,
+=======
+>>>>>>> master
   FormTextarea,
   Button
 } from "shards-react";
 
+<<<<<<< HEAD
 function UserInputSettings(props, { title }) {
 
   const [firstname, setFirstname] = useState('John');
@@ -362,6 +370,141 @@ function UserInputSettings(props, { title }) {
     </Container>
   );
 }
+=======
+const UserInputSettings = ({ title }) => (
+  
+  <Container>
+  <Card small className="mb-4">
+    <ListGroup flush>
+      <ListGroupItem className="p-3">
+        <Row>
+          <Col>
+            <Form>
+
+
+            <GridContainer>
+            <GridItem xs={12} sm={4} md={4} lg={3}>
+              <CustomInput
+                labelText="First Name"
+                id="FirstName"
+                formControlProps={{
+                  fullWidth: false
+                }}
+              />
+            </GridItem>
+
+            <GridItem xs={12} sm={4} md={4} lg={3}>
+              <CustomInput
+                labelText="Last Name"
+                id="LastName"
+                formControlProps={{
+                  fullWidth: false
+                }}
+              />
+            </GridItem>
+
+            <GridItem xs={12} sm={4} md={4} lg={3}>
+              <CustomInput
+                labelText="Email"
+                id="Email"
+                formControlProps={{
+                  fullWidth: false
+                }}
+              />
+            </GridItem>
+
+            <GridItem xs={12} sm={4} md={4} lg={3}>
+              <CustomInput
+                labelText="Address"
+                id="HomeAddress"
+                formControlProps={{
+                  fullWidth: false
+                }}
+              />
+            </GridItem>
+
+            <GridItem xs={12} sm={4} md={4} lg={3}>
+              <CustomInput
+                labelText="City"
+                id="City"
+                formControlProps={{
+                  fullWidth: false
+                }}
+              />
+            </GridItem>
+
+            <GridItem xs={12} sm={4} md={4} lg={3}>
+              <CustomInput
+                labelText="State"
+                id="State"
+                formControlProps={{
+                  fullWidth: false
+                }}
+              />
+            </GridItem>
+
+            <GridItem xs={12} sm={4} md={4} lg={3}>
+              <CustomInput
+                labelText="Zip Code"
+                id="ZipCode"
+                formControlProps={{
+                  fullWidth: false
+                }}
+              />
+            </GridItem>
+
+            <GridItem xs={12} sm={4} md={4} lg={3}>
+              <CustomInput
+                labelText="Height ft"
+                id="HeightFt"
+                formControlProps={{
+                  fullWidth: false
+                }}
+              />
+            </GridItem>
+
+            <GridItem xs={12} sm={4} md={4} lg={3}>
+              <CustomInput
+                labelText="Height in"
+                id="HeightIn"
+                formControlProps={{
+                  fullWidth: false
+                }}
+              />
+            </GridItem>
+
+            <GridItem xs={12} sm={4} md={4} lg={3}>
+              <CustomInput
+                labelText="Weight lbs"
+                id="Weightlbs"
+                formControlProps={{
+                  fullWidth: false
+                }}
+              />
+            </GridItem>
+
+            </GridContainer>
+
+              <Row form>
+                <Col md="12" className="form-group">
+                  <label id="other">Your Motivation</label>
+                  <FormTextarea id="emp" rows="5" />
+                </Col>
+              </Row>
+              <Button className="btnSettings" id="change" 
+              theme="muted"
+              // onClick={changeLabel}
+              >Update Account</Button>
+             
+            </Form>
+          </Col>
+        </Row>
+      </ListGroupItem>
+    </ListGroup>
+  </Card>
+  </Container>
+);
+>>>>>>> master
 
 
 

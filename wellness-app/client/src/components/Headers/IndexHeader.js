@@ -1,10 +1,6 @@
-/*eslint-disable*/
 import React from "react";
 
-// reactstrap components
 import { Container } from "reactstrap";
-// import "style.css";
-// core components
 
 function IndexHeader() {
   let pageHeader = React.createRef();
@@ -40,8 +36,9 @@ function IndexHeader() {
               className="brand n-logo"
               src={require("assets/img/logo1.png")}
             ></img>
-            <h1 className="h1-seo">WELLNESS</h1>
-            <h3>A guide to a healthier you</h3>
+            <h1 className="face underline">WELLNESS</h1>
+            <h3 className="face">A guide to</h3>
+            <h2 className="face">A Healthier You</h2>
           </div>
         </Container>
       </div>
