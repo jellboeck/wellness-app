@@ -108,7 +108,8 @@ app.put("/api/update_profile", function(req, res) {
     state: req.body.state,
     zip: req.body.zip,
     motivation: req.body.motivation,
-    height: req.body.height,
+    heightft: req.body.heightft,
+    heightin: req.body.heightin,
     weight: req.body.weight
   }, {
     where: {
@@ -160,8 +161,20 @@ app.put("/api/update_profile", function(req, res) {
 //    }).then(function(results) {
 //      res.end();
 //    });
+
+// // Add step for user
+app.post("/api/new_step", function(req, res) {
+  console.log('res');
+  console.log(res);
+   db.steps.create({
+     quantity: req.body.quantity,
+     userEmail: 'stevie@wonder.com',
+     UserId: 1
+   }).then(function(results) {
+     res.end();
+   });
  
-//  });
+ });
  
   //  // DELETE route for deleting entries. We can get the id of the todo to be deleted from
   //  // req.params.id

@@ -25,7 +25,8 @@ function UserAccountDetails(props, { title }) {
   const [state, setState] = useState('');
   const [zip, setZip] = useState('');
   // const [motivation, setMotivation] = useState('');
-  const [height, setHeight] = useState('');
+  const [heightFt, setHeightFt] = useState('');
+  const [heightIn, setHeightIn] = useState('');
   const [weight, setWeight] = useState('');
 
 
@@ -41,7 +42,8 @@ function UserAccountDetails(props, { title }) {
       setState(data.data.state);
       setZip(data.data.zip);
       // setMotivation(data.data.motivation);
-      setHeight(data.data.height);
+      setHeightFt(data.data.heightft);
+      setHeightIn(data.data.heightin);
       setWeight(data.data.weight);
     });
   }
@@ -104,7 +106,11 @@ function UserAccountDetails(props, { title }) {
 {/* Height */}
               <Col md="2" >
               <h5 >Height </h5>
-              <h6 className="h6p" id='userHeight'> {height} </h6>
+              <h6 className="h6p" id='userHeight'> {heightFt} </h6>
+              </Col>
+              <Col md="2" >
+              <h5 >Height </h5>
+              <h6 className="h6p" id='userHeight'> {heightIn} </h6>
               </Col>
 {/* Weight */}
               <Col md="2" >

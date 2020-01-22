@@ -57,7 +57,10 @@ module.exports = function (sequelize, DataTypes) {
         }
     }
     },
-    height: {
+    heightft: {
+      type: DataTypes.INTEGER
+    },
+    heightin: {
       type: DataTypes.INTEGER
     },
     weight: {
@@ -77,12 +80,12 @@ module.exports = function (sequelize, DataTypes) {
     user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
   });
 
-  // one user can have many events
-  // User.associate = function (models) {
-  //   User.hasMany(models.calendar, {
-  //     onDelete: 'cascade'
-  //   });
-  // };
+  // one user can have many steps
+  User.associate = function (models) {
+    User.hasMany(models.steps, {
+      onDelete: 'cascade'
+    });
+  };
 
   return User;
 };

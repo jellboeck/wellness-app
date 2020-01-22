@@ -61,7 +61,7 @@ function ProfilePage(props) {
     <>
       <ProfileNavbar {...props} getUser={props.getUser} user={props.user} />
       <div className="wrapper">
-        <ProfilePageHeader />
+        <ProfilePageHeader {...props} getUser={props.getUser} user={props.user} />
     
           <Container>
 
@@ -73,12 +73,12 @@ function ProfilePage(props) {
               <p>BMI %</p>
             </div>
             <div className="social-description">
-              <h2>Heloo</h2>
+              <h2>Hello</h2>
               <p>{props.user}</p>
             </div>
 
             <div >
-            <Steps />
+            <Steps {...props} user = {props.user} getUser={props.getUser}/>
             </div>
 
           </div>
