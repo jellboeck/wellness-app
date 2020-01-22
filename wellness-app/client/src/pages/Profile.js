@@ -1,5 +1,7 @@
 import React from "react";
 
+import axios from 'axios';
+
 import {Container} from "reactstrap";
 
 import ProfileNavbar from "components/Navbars/Navbar.js";
@@ -22,6 +24,39 @@ function ProfilePage(props) {
       document.body.classList.remove("sidebar-collapse");
     };
   });
+
+  // const [firstname, setFirstname] = useState('');
+  // const [lastname, setLastname] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [password, setPassword] = useState('');
+  // const [address, setAddress] = useState('');
+  // const [city, setCity] = useState('');
+  // const [state, setState] = useState('');
+  // const [zip, setZip] = useState('');
+  const [motivation, setMotivation] = React.useState('');
+  // const [height, setHeight] = useState('');
+  // const [weight, setWeight] = useState('');
+
+  function getUserProfile() {
+    axios.get('/api/user_profile').then(function(data){
+      console.log('profile data pro');
+      console.log(data.data.email);
+      console.log(data.data.motivation);
+      // setFirstname(data.data.firstname);
+      // setLastname(data.data.lastname);
+      // setEmail(data.data.email);
+      // setAddress(data.data.address);
+      // setCity(data.data.city);
+      // setState(data.data.state);
+      // setZip(data.data.zip);
+      setMotivation(data.data.motivation);
+      // setHeight(data.data.height);
+      // setWeight(data.data.weight);
+    });
+  }
+
+  getUserProfile();
+
   return (
     <>
       <ProfileNavbar {...props} getUser={props.getUser} user={props.user} />
@@ -51,8 +86,9 @@ function ProfilePage(props) {
 
             <h3 className="title">My Motivation</h3>
             <h6 className="description" id="myMotivation">
-Enter a few simple lines about your motivation to meet your goals!
+Enter a few simple lines in your profile about your motivation to meet your goals!
             </h6>
+            <h4 className='title'>{motivation} </h4>
             {/* <Row>
               <Col className="ml-auto mr-auto" md="6">
                 <h4 className="title text-center">My Metrics</h4>
