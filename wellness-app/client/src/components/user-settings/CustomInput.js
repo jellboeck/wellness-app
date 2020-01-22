@@ -68,11 +68,7 @@ export default function CustomInput(props) {
         classes={{
           input: inputClasses,
           root: marginTop,
-<<<<<<< HEAD
-          // disabled: classes.disabled,
-=======
           disabled: classes.disabled,
->>>>>>> master
           underline: underlineClasses
         }}
         id={id}
