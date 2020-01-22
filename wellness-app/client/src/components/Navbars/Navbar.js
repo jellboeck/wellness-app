@@ -17,7 +17,9 @@ import {
   // UncontrolledTooltip
 } from "reactstrap";
 
-function ExamplesNavbar() {
+function ExamplesNavbar(props) {
+  console.log("exNavbar");
+  console.log(props);
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
   const [collapseOpen, setCollapseOpen] = React.useState(false);
   React.useEffect(() => {

@@ -19,7 +19,10 @@ import ExamplesNavbar from "components/Navbars/Navbar.js";
 import ProfilePageHeader from "components/Headers/ProfilePageHeader.js";
 import DefaultFooter from "components/Footers/DefaultFooter.js";
 
-function ProfilePage() {
+function ProfilePage(props) {
+  console.log('profile');
+  console.log(props);
+  props.getUser();
   const [pills, setPills] = React.useState("2");
   React.useEffect(() => {
     document.body.classList.add("profile-page");
@@ -32,7 +35,7 @@ function ProfilePage() {
   });
   return (
     <>
-      <ExamplesNavbar />
+      <ExamplesNavbar {...props} getUser={props.getUser}/>
       <div className="wrapper">
         <ProfilePageHeader />
     
@@ -46,8 +49,8 @@ function ProfilePage() {
               <p>BMI %</p>
             </div>
             <div className="social-description">
-              <h2>20</h2>
-              <p>Something</p>
+              <h2>Heloo</h2>
+              <p>{props.user}</p>
             </div>
             <div className="social-description">
               <h2>30</h2>

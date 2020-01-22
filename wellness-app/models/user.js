@@ -5,6 +5,24 @@ console.log('user');
 module.exports = function (sequelize, DataTypes) {
   var User = sequelize.define("User", {
     // email cannot be null and must be proper email
+    firstname: {
+      type: DataTypes.STRING,
+      validate: {
+        len: {
+            args: [1, 25],
+            message: 'Event must be between 1 and 25 characters in length.'
+        }
+    }
+    },
+    lastname: {
+      type: DataTypes.STRING,
+      validate: {
+        len: {
+            args: [1, 25],
+            message: 'Event must be between 1 and 25 characters in length.'
+        }
+    }
+    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -17,7 +35,36 @@ module.exports = function (sequelize, DataTypes) {
     password: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    address: {
+      type: DataTypes.STRING
+    },
+    city: {
+      type: DataTypes.STRING
+    },
+    state: {
+      type: DataTypes.STRING
+    },
+    zip: {
+      type: DataTypes.STRING
+    },
+    motivation: {
+      type: DataTypes.STRING,
+      validate: {
+        len: {
+            args: [1, 255],
+            message: 'Event must be between 1 and 255 characters in length.'
+        }
     }
+    },
+    height: {
+      type: DataTypes.INTEGER
+    },
+    weight: {
+      type: DataTypes.INTEGER
+    }
+
+
   });
 // custom method for our User model to check if an unhashed password entered
   // by user can be compared to hashed password in database
@@ -31,11 +78,11 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   // one user can have many events
-  User.associate = function (models) {
-    User.hasMany(models.calendar, {
-      onDelete: 'cascade'
-    });
-  };
+  // User.associate = function (models) {
+  //   User.hasMany(models.calendar, {
+  //     onDelete: 'cascade'
+  //   });
+  // };
 
   return User;
 };

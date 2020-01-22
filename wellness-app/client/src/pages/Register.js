@@ -43,7 +43,7 @@ function LoginPage() {
   });
   
   const handleSignUp = () => {
-    console.log('logging in');
+    console.log('signing in');
     // check for entry of email
     if (!email) {
       alert("Fill out your email please!");
@@ -57,7 +57,7 @@ function LoginPage() {
       alert(`Hello ${email}`);
       axios({
         method: 'POST',
-        url: '/api/Form',
+        url: '/api/signup',
         // test code
         // data: {email: 'email@email2.com', password: '123456901591'}
         data: { email: email, password: password }

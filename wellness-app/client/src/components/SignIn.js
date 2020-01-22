@@ -20,14 +20,15 @@ import {
 
 // core components
 
-function SignIn() {
+function SignIn(props) {
+  console.log('Signin');
+  console.log(props);
 
   const [emailFocus, setEmailFocus] = React.useState(false);
   const [passwordFocus, setPasswordFocus] = React.useState(false);
 
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
-
   const handleSignIn = () => {
     console.log('logging in');
     // prevent default behavior of the form submit (which is to refresh the page)
@@ -39,27 +40,27 @@ function SignIn() {
     } else {
       // if email and password present and password if correct length, post user information
       alert(`Hello ${email}`);
-        axios({
-          method: 'POST',
-          url: '/api/login',
-          // test code
-          // data: {email: 'email@email2.com', password: '123456901591'}
-          data: { email: email, password: password }
-        })
+      axios({
+        method: 'POST',
+        url: '/api/login',
+        // test code
+        // data: {email: 'email@email2.com', password: '123456901591'}
+        data: { email: email, password: password }
+      })
         // change to main page
-          .then(function (data) {
-            console.log('data');
-            console.log(data);
-            window.location.replace("/index");
-          })
-          // if error, handle by throwing err
-          .catch(function(err){
-            console.log(err);
-          });
-      }
+        .then(function (data) {
+          console.log('data');
+          console.log(data);
+          window.location.replace("/index");
+        })
+        // if error, handle by throwing err
+        .catch(function (err) {
+          console.log(err);
+        });
+    }
     // reset form
     setEmail('');
-    setPassword('') 
+    setPassword('')
   };
 
   return (
@@ -138,32 +139,32 @@ function SignIn() {
                     Sign In
                   </Button>
                   <div className="col text-center">
-                  <Button
-                    className="btn-round btn-white"
-                    color="default"
-                    to="/sign-up"
-                    outline
-                    size="lg"
-                    tag={Link}
-                  >
-                    Or Sign Up
+                    <Button
+                      className="btn-round btn-white"
+                      color="default"
+                      to="/sign-up"
+                      outline
+                      size="lg"
+                      tag={Link}
+                    >
+                      Or Sign Up
                   </Button>
 
-            <Button
-              className="btn-round btn-white"
-              color="default"
-              to="/profile"
-              outline
-              size="lg"
-              tag={Link}
-            >
-              Profile
+                    <Button
+                      className="btn-round btn-white"
+                      color="default"
+                      to="/profile"
+                      outline
+                      size="lg"
+                      tag={Link}
+                    >
+                      Profile
             </Button>
 
-            </div>
+                  </div>
 
                 </CardFooter>
-                </Form>
+              </Form>
             </Card>
           </Row>
         </Container>
