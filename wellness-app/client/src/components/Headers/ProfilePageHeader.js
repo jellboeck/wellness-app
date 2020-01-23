@@ -10,6 +10,8 @@ import Goals from "components/userGoals.js";
 
 
 function ProfilePageHeader(props) {
+  console.log('pph');
+  console.log(props);
   let pageHeader = React.createRef();
 
   const [firstname, setFirstname] = useState('');

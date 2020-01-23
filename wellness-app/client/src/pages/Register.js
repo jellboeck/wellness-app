@@ -62,7 +62,7 @@ function LoginPage() {
       })
       // change to main page
       .then(function (data) {
-        window.location.replace("/");
+        window.location.replace("/profile");
       })
       // if error, handle by throwing err
       .catch(function(err){
