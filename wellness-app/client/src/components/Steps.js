@@ -17,7 +17,7 @@ import {
 } from "shards-react";
 
 
-function userGoals({ steps }, props) {
+function userSteps({ steps }, props) {
   console.log('user goals steps')
   console.log(props);
   
@@ -109,4 +109,4 @@ return (
         totalsteps.innerText = yourprogress;       // TREATS EVERY CONTENT AS TEXT.
     }
 
-export default userGoals;
+export default userSteps;

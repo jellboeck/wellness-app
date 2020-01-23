@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from 'axios';
 import { Container, Row, Col } from "shards-react";
 
 import SmallStats from "../components/charts/SmallStats";
@@ -6,6 +7,24 @@ import SmallStats from "../components/charts/SmallStats";
 function userGoals({ smallStats }, props) {
   console.log('user goals');
   console.log(props);
+
+  // const [steps, setSteps] = useState();
+  var steps = [];
+  function getUserSteps() {
+    axios.get('/api/step_data').then(function (data) {
+      console.log('step data');
+      console.log(data);
+      for (var i = 0; i < data.data.length; i++) {
+        steps[i] = data.data[i].quantity
+      }
+      console.log(steps);
+     
+      // setWeight(data.data.weight);
+    });
+  }
+  getUserSteps();
+  console.log('steps out')
+  console.log(steps);
   return (
     <Container fluid className="main-content-container px-4">
     {/* Page Header */}
@@ -27,6 +46,7 @@ function userGoals({ smallStats }, props) {
             />
         </Col>
       ))}
+        
     </Row>
 
       {/* Users Overview */}
@@ -73,7 +93,7 @@ userGoals.defaultProps = {
           borderWidth: 3,
           backgroundColor: "rgba(255,65,105,0.1)",
           borderColor: "rgb(255,65,105)",
-          data: [1, 7, 1, 3, 1, 4, 8]
+          data: [2, 3, 3, 3, 4, 3, 5]
         }
       ]
     }

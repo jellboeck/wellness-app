@@ -145,6 +145,25 @@ app.put("/api/update_profile", function(req, res) {
 //   });
 // });
 
+// // get event data for logged in user
+app.get("/api/step_data", function(req, res) {
+  db.steps.findAll({
+    where: {
+      UserId: 1
+    },
+    order: [
+      ['createdAt', 'ASC'],
+    ]
+    // include: [{
+    //   model: db.User,
+    //   required: true
+    // }]
+  }).then(function(results){
+    res.json(results);
+   
+  });
+});
+
 // // Add an event
 // app.post("/api/new", function(req, res) {
 //    db.calendar.create({
