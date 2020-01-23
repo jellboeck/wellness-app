@@ -12,12 +12,13 @@ import Index from "pages/Landing.js";
 import SignUp from "pages/Register.js";
 import Profile from "pages/Profile.js";
 
-import UserGoals from "./components/userGoals";
+import Goals from "./components/userGoals";
 import UserSettings from "./pages/Settings";
 import axios from "axios";
 
 serviceWorker.unregister();
 function App() {
+  const [id, setId] = React.useState(null);
   const [user, setUser] = React.useState(null);
   const [loggedIn, setLoggedIn] = React.useState(false);
 
@@ -30,6 +31,7 @@ function App() {
       if (response.data.email) {
         console.log('Get user: There is a user saved in the server session');
         setUser(response.data.email);
+        setId(response.data.id);
         setLoggedIn(true)
       } else {
         console.log('Get user: no user');
@@ -46,13 +48,13 @@ function App() {
         <BrowserRouter>
     <Switch>
       <Switch>
-        <Route path="/index" render={props => <Index {...props} user = {user} loggedIn={loggedIn} getUser={getUser} />} />
-        <Route path="/profile" render={props => <Profile {...props} user = {user} loggedIn={loggedIn} getUser={getUser}/>} />
+        <Route path="/index" render={props => <Index {...props} user = {user} loggedIn={loggedIn} getUser={getUser} id={id} />} />
+        <Route path="/profile" render={props => <Profile {...props} user = {user} loggedIn={loggedIn} getUser={getUser}  id={id}/>} />
 
-        <Route path="/settings" render={props => <UserSettings {...props} getUser={getUser } user = {user} loggedIn={loggedIn}/>} />
-        <Route path="/goals" render={props => <UserGoals {...props} getUser={getUser} user = {user} loggedIn={loggedIn}/>} />
+        <Route path="/settings" render={props => <UserSettings {...props} getUser={getUser } user = {user} loggedIn={loggedIn} id={id}/>} />
+        <Route path="/goals" render={props => <Goals {...props} getUser={getUser} user = {user} loggedIn={loggedIn} id={id}/>} />
 
-        <Route path="/sign-up" render={props => <SignUp {...props} getUser={getUser} user = {user} loggedIn={loggedIn}/>} />
+        <Route path="/sign-up" render={props => <SignUp {...props} getUser={getUser} user = {user} loggedIn={loggedIn} id={id}/>} />
         <Redirect to="/index" />
         {/* <Redirect from="/" to="/index" /> */}
       </Switch>

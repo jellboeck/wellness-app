@@ -14,7 +14,7 @@ function ProfilePage(props) {
   console.log('profile');
   console.log(props);
   props.getUser();
-  const [pills, setPills] = React.useState("2");
+  // const [pills, setPills] = React.useState("2");
   React.useEffect(() => {
     document.body.classList.add("profile-page");
     document.body.classList.add("sidebar-collapse");
@@ -61,7 +61,7 @@ function ProfilePage(props) {
     <>
       <ProfileNavbar {...props} getUser={props.getUser} user={props.user} />
       <div className="wrapper">
-        <ProfilePageHeader {...props} getUser={props.getUser} user={props.user} />
+        <ProfilePageHeader {...props} getUser={props.getUser} user={props.user} id={props.id} />
     
           <Container>
 
@@ -78,7 +78,7 @@ function ProfilePage(props) {
             </div>
 
             <div >
-            <Steps {...props} user = {props.user} getUser={props.getUser}/>
+            <Steps {...props} user = {props.user} getUser={props.getUser} id={props.id}/>
             </div>
 
           </div>
