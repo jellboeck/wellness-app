@@ -147,12 +147,14 @@ app.put("/api/update_profile", function(req, res) {
 
 // // get event data for logged in user
 app.get("/api/step_data", function(req, res) {
+  console.log('step retrieval');
+  console.log(req.user.id);
   db.steps.findAll({
     where: {
-      UserId: 1
+      UserId: req.user.id
     },
     order: [
-      ['createdAt', 'ASC'],
+      ['createdAt', 'DESC'],
     ]
     // include: [{
     //   model: db.User,
@@ -183,12 +185,12 @@ app.get("/api/step_data", function(req, res) {
 
 // // Add step for user
 app.post("/api/new_step", function(req, res) {
-  console.log('res');
-  console.log(res);
+  // console.log('req');
+  // console.log(req);
    db.steps.create({
      quantity: req.body.quantity,
-     userEmail: 'stevie@wonder.com',
-     UserId: 1
+     userEmail: req.body.userEmail,
+     UserId: req.body.id
    }).then(function(results) {
      res.end();
    });
