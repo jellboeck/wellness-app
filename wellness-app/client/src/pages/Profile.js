@@ -79,6 +79,7 @@ function ProfilePage(props) {
             </div>
 
             <div >
+            <BMIcalc {...props} user = {props.user} getUser={props.getUser} id={props.id} />
             <Steps {...props} user = {props.user} getUser={props.getUser} id={props.id}/>
             </div>
 
