@@ -34,7 +34,7 @@ function Goals(props, { smallStats }) {
   // steps = [5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000];
   // steps = [3000, 4000, 5000, 6000, 7000, 6000, 5000, 4000, 3000, 2000];
 
-  steps = getUserSteps();
+  // steps = getUserSteps();
 
   console.log('steps out again')
   console.log(steps);
