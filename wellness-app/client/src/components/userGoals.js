@@ -1,15 +1,22 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import axios from 'axios';
 import { Container, Row, Col } from "shards-react";
 
 import SmallStats from "../components/charts/SmallStats";
 
-function userGoals({ smallStats }, props) {
+function Goals(props, { smallStats }) {
+
+  const [lastStep, setLastStep] = useState('11538');
+
   console.log('user goals');
   console.log(props);
+  // var steps = [];
+   var steps = [15000, 10000, 5000, 2000, 12000, 13000, 8000, 9000, 4000, 5000];
+  console.log('steps out')
+  console.log(steps);
 
-  // const [steps, setSteps] = useState();
-  var steps = [0];
+  getUserSteps();
+
   function getUserSteps() {
     axios.get('/api/step_data').then(function (data) {
       console.log('step data');
@@ -18,17 +25,22 @@ function userGoals({ smallStats }, props) {
         steps[i] = data.data[i].quantity
       }
       console.log(steps);
-
+      return steps
       // setWeight(data.data.weight);
     });
   }
-  getUserSteps();
-  console.log('steps out')
-  console.log(steps);
-  steps = [8765, 12345, 5432, 6754, 1234, 1234, 1234, 1234, 4567, 10000];
+  // steps = [15000, 15000, 15000, 15000, 15000, 15000, 15000, 15000, 15000, 15000];
+  // steps = [8765, 12345, 5432, 6754, 1234, 1234, 1234, 1234, 4567, 10000];
+  // steps = [5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000];
+  // steps = [3000, 4000, 5000, 6000, 7000, 6000, 5000, 4000, 3000, 2000];
+
+  steps = getUserSteps();
+
   console.log('steps out again')
   console.log(steps);
   var nulls = [null, null, null, null, null, null, null]
+  var BMIdata = [2, 3, 3, 3, 4, 3, 5];
+
   if (steps === [0]) {
     return (
       <div />
@@ -36,6 +48,7 @@ function userGoals({ smallStats }, props) {
   } else {
 
     return (
+      // getUserSteps();
       <Container fluid className="main-content-container px-4">
       {/* Page Header */}
 
@@ -67,7 +80,7 @@ function userGoals({ smallStats }, props) {
                 borderWidth: 3,
                 backgroundColor: "rgba(255,180,0,0.1)",
                 borderColor: "rgb(255,180,0)",
-                data: [2, 3, 3, 3, 4, 3, 5]
+                data: BMIdata
               }
             ]}
             chartLabels={nulls}
@@ -94,7 +107,8 @@ function userGoals({ smallStats }, props) {
             ]}
             chartLabels={[null, null, null, null, null, null, null]}
             label={"Steps"}
-            value={"11385"}
+            value={lastStep}
+            // value={"11385"}
             percentage={"3.8%"}
             increase={true}
             // decrease={stats.decrease}
@@ -111,7 +125,7 @@ function userGoals({ smallStats }, props) {
 };
 };
 
-userGoals.defaultProps = {
+Goals.defaultProps = {
   smallStats: [
     
     {
@@ -149,11 +163,11 @@ userGoals.defaultProps = {
           borderWidth: 3,
           backgroundColor: "rgba(255,65,105,0.1)",
           borderColor: "rgb(255,65,105)",
-          data: [2, 3, 3, 3, 4, 3, 5]
+          data: [2000, 3000, 4000, 5000, 6000, 7000, 6000, 5000, 4000, 3000]
         }
       ]
     }
   ]
 };
 
-export default userGoals;
+export default Goals;
