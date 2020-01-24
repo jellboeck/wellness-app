@@ -9,6 +9,7 @@ import ProfilePageHeader from "components/Headers/ProfilePageHeader.js";
 import DarkFooter from "components/Footers/DarkFooter.js";
 import BMIcalc from "components/BMIcalc.js";
 import Steps from "components/Steps.js";
+import yelpSearch from "components/yelpSearch.js";
 
 function ProfilePage(props) {
   console.log('profile');
@@ -79,6 +80,11 @@ function ProfilePage(props) {
 
             <div >
             <Steps {...props} user = {props.user} getUser={props.getUser}/>
+            </div>
+
+            <div>
+              <h3>Search for Healthy Stuff!</h3>
+              <yelpSearch {...props} user= {props.user} getUser={props.getUser}/>
             </div>
 
           </div>
