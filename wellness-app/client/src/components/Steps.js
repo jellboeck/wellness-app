@@ -95,7 +95,7 @@ function Steps(props, { steps }) {
 
                   <Button id="StepsBtn"
                     theme="info"
-                    onClick={calcSteps}
+                    onClick={() => calcSteps()}
                   >Update Your Steps</Button>
                   <h4 id="stepresult" className="title text-center"></h4>
 
