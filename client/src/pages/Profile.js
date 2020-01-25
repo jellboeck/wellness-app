@@ -10,7 +10,6 @@ import DarkFooter from "components/Footers/DarkFooter.js";
 import BMIcalc from "components/BMIcalc.js";
 import Steps from "components/Steps.js";
 import WeightUpdate from "components/weightUpdate.js";
-import yelpSearch from "components/yelpSearch.js";
 
 function ProfilePage(props) {
   // console.log('profile');
@@ -87,11 +86,6 @@ function ProfilePage(props) {
             <BMIcalc {...props} user = {props.user} getUser={props.getUser} id={props.id}/>           
             <WeightUpdate {...props} user = {props.user} getUser={props.getUser} id={props.id}/>     
             <Steps {...props} user = {props.user} getUser={props.getUser} id={props.id}/>
-            </div>
-
-            <div>
-              <h3>Search for Healthy Stuff!</h3>
-              <yelpSearch {...props} user= {props.user} getUser={props.getUser}/>
             </div>
 
           </div>

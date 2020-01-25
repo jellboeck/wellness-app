@@ -183,7 +183,7 @@ color: white;
 .description{
   margin-top: 0px;
   padding-top: 5px;
-  padding-bottom: 50px;
+  /* padding-bottom: 50px; */
 }
 
 .btnupdate{

@@ -27,7 +27,7 @@ const userBMI = ({ BMI }) => (
           <h6 className="heading text-center">Calculate Your BMI</h6>
           <GridContainer>
           
-          <GridItem xs={12} sm={4} md={4} lg={3}>
+          <GridItem xs={12} sm={4} md={4} lg={4}>
           <FormInput
           placeholder="weight"
           id="lbs"
@@ -37,7 +37,7 @@ const userBMI = ({ BMI }) => (
           />
           </GridItem>
 
-          <GridItem xs={12} sm={4} md={4} lg={3}>
+          <GridItem xs={12} sm={4} md={4} lg={4}>
 
           <FormInput
           placeholder="Height ft"
@@ -49,7 +49,7 @@ const userBMI = ({ BMI }) => (
 
           </GridItem>
 
-          <GridItem xs={12} sm={4} md={4} lg={3}>
+          <GridItem xs={12} sm={4} md={4} lg={4}>
 
           <FormInput
           placeholder="Height in"
