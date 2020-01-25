@@ -60,7 +60,7 @@ class BarChart extends Component {
                         {
                             label: 'Steps',
                             data: this.props.steps,
-                            backgroundColor: 'green'
+                            backgroundColor: 'red'
                         }
                     ]
                 }}
