@@ -37,11 +37,12 @@ function TransparentFooter() {
           </ul> */}
         </nav>
         <div className="copyright" id="copyright">
-          © {new Date().getFullYear()}, Designed by{" "}
-          <a
+        © {new Date().getFullYear()}, Its not a bug, Its a feature{" "}
+          {/* <a
           >
             The Cool Group
-          </a>
+          </a> */}
+
         </div>
       </Container>
     </footer>

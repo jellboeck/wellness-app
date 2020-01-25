@@ -12,8 +12,8 @@ import {
 } from "shards-react";
 
 function UserAccountDetails(props, { title }) {
-  console.log('acct details');
-  console.log(props);
+  //console.log('acct details');
+  //console.log(props);
   props.getUser();
 
   const [firstname, setFirstname] = useState('');
@@ -28,12 +28,14 @@ function UserAccountDetails(props, { title }) {
   const [heightFt, setHeightFt] = useState('');
   const [heightIn, setHeightIn] = useState('');
   const [weight, setWeight] = useState('');
-
+  const [bmiGoal, setBMIGoal] = useState();
+  const [stepGoal, setStepGoal] = useState();
+  const [stepTotal, setStepTotal] = useState();
 
   function getUserProfile() {
     axios.get('/api/user_profile').then(function(data){
-      console.log('profile data');
-      console.log(data.data.email);
+     // console.log('profile data');
+     // console.log(data.data.email);
       setFirstname(data.data.firstname);
       setLastname(data.data.lastname);
       setEmail(data.data.email);
@@ -45,14 +47,18 @@ function UserAccountDetails(props, { title }) {
       setHeightFt(data.data.heightft);
       setHeightIn(data.data.heightin);
       setWeight(data.data.weight);
+      setBMIGoal(data.data.bmigoal);
+      setStepGoal(data.data.stepgoal);
+      setStepTotal(data.data.steptotal);
     });
   }
 
+  getUserProfile();
   // getUserProfile();
   return (
   <Container>
 
-  <Card small className="mb-4"
+  <Card className="mb-4 updatecard"
    style={{
      marginTop: "115px"
   }}
@@ -117,12 +123,22 @@ function UserAccountDetails(props, { title }) {
               <h5 >Weight </h5>
               <h6 className="h6p" id='userWeight'> {weight} </h6>
               </Col>
-
-              <Button
-                    theme="accent"
-                    onClick={() => getUserProfile()}
-
-                  >Get Account Info</Button>
+{/* bmi Goal */}
+              <Col md="2" >
+              <h5 >BMI Goal </h5>
+              <h6 className="h6p" id='userBMIGoal'> {bmiGoal} </h6>
+              </Col>
+              {/* Step Goal */}
+              <Col md="2" >
+              <h5 >Steps Goal </h5>
+              <h6 className="h6p" id='userStepGoal'> {stepGoal} </h6>
+              </Col>
+              {/* total steps*/}
+              <Col md="2" >
+              <h5 >Steps total </h5>
+              <h6 className="h6p" id='userStepTotal'> {stepTotal} </h6>
+              </Col>
+             
 
             </Row>
 

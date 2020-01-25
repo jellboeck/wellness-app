@@ -10,8 +10,8 @@ import Goals from "components/userGoals.js";
 
 
 function ProfilePageHeader(props) {
-  console.log('pph');
-  console.log(props);
+  //console.log('pph');
+  //console.log(props);
   let pageHeader = React.createRef();
 
   const [firstname, setFirstname] = useState('');
@@ -19,9 +19,9 @@ function ProfilePageHeader(props) {
 
   function getUserProfile() {
     axios.get('/api/user_profile').then(function(data){
-      console.log('profile data pro head');
-      console.log(data.data.email);
-      console.log(data.data.motivation);
+     // console.log('profile data pro head');
+     // console.log(data.data.email);
+     // console.log(data.data.motivation);
       setFirstname(data.data.firstname);
       setLastname(data.data.lastname);
       // setEmail(data.data.email);
@@ -68,8 +68,8 @@ function ProfilePageHeader(props) {
           <div className="photo-container">
             <img alt="..." src={require("assets/img/logan.png")}></img>
           </div>
-          <h3 className="title"> {firstname} <span> </span> {lastname} </h3>
-          <p className="category">Developer</p>
+          <h2 className="title"> {firstname} <span> </span> {lastname} </h2>
+   
           
 
         <Goals {...props} getUser={props.getUser} user = {props.user} loggedIn={props.loggedIn}/>

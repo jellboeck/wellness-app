@@ -31,32 +31,12 @@ function UserInputSettings(props, { title }) {
   const [state, setState] = useState('');
   const [zip, setZip] = useState('');
   const [motivation, setMotivation] = useState();
-  const [heightFt, setHeightFt] = useState();
-  const [heightIn, setHeightIn] = useState();
-  const [weight, setWeight] = useState();
-
-  function getUserProfile() {
-    axios.get('/api/user_profile').then(function (data) {
-      console.log('profile data');
-      console.log(data);
-      setFirstname(data.data.firstname);
-      setLastname(data.data.lastname);
-      setEmail(props.user);
-      setAddress(data.data.address);
-      setCity(data.data.city);
-      setState(data.data.state);
-      setZip(data.data.zip);
-      setMotivation(data.data.motivation);
-      setHeightFt(data.data.heightft);
-      setHeightIn(data.data.heightin);
-      setWeight(data.data.weight);
-    });
-  }
+  
 
   // getUserProfile();
   // send new profile data to database
   function handleUpdateProfile() {
-    console.log('updating profile');
+    //console.log('updating profile');
     axios({
       method: 'PUT',
       url: '/api/update_profile',
@@ -72,16 +52,14 @@ function UserInputSettings(props, { title }) {
         state: state,
         zip: zip,
         motivation: motivation,
-        heightft: heightFt,
-        heightin: heightIn,
-        weight: weight
+
 
       }
     })
       // get new data to display
       .then(function (data) {
-        console.log('data');
-        console.log(data);
+       // console.log('data');
+       // console.log(data);
         // window.location.replace("/index");
       })
       // if error, handle by throwing err
@@ -93,150 +71,17 @@ function UserInputSettings(props, { title }) {
 
   return (
     <Container>
-      <Card small className="mb-4">
+      <Card className="updatecard mb-4">
         <ListGroup flush>
           <ListGroupItem className="p-3">
             <Row>
               <Col>
                 <Form>
 
-
-                  {/* <GridContainer>
-                    <GridItem xs={12} sm={4} md={4} lg={3}>
-                      <CustomInput
-                        labelText="First Name"
-                        id="FirstName"
-                        value={firstname}
-                        onChange={e => setFirstname(e.target.value)}
-                        formControlProps={{
-                          fullWidth: false
-                        }}
-                      />
-                    </GridItem>
-
-                    <GridItem xs={12} sm={4} md={4} lg={3}>
-                      <CustomInput
-                        labelText="Last Name"
-                        id="LastName"
-                        value={lastname}
-                        onChange={e => setLastname(e.target.value)}
-                        formControlProps={{
-                          fullWidth: false
-                        }}
-                      />
-                    </GridItem>
-
-                    <GridItem xs={12} sm={4} md={4} lg={3}>
-                      <CustomInput
-                        labelText="Email"
-                        id="Email"
-                        value={email}
-                        onChange={e => setEmail(e.target.value)}
-                        formControlProps={{
-                          fullWidth: false
-                        }}
-                      />
-                    </GridItem>
-
-                    <GridItem xs={12} sm={4} md={4} lg={3}>
-                      <CustomInput
-                        labelText="Address"
-                        id="HomeAddress"
-                        value={address}
-                        onChange={e => setAddress(e.target.value)}
-                        formControlProps={{
-                          fullWidth: false
-                        }}
-                      />
-                    </GridItem>
-
-                    <GridItem xs={12} sm={4} md={4} lg={3}>
-                      <CustomInput
-                        labelText="City"
-                        id="City"
-                        value={city}
-                        onChange={e => setCity(e.target.value)}
-                        formControlProps={{
-                          fullWidth: false
-                        }}
-                      />
-                    </GridItem>
-
-                    <GridItem xs={12} sm={4} md={4} lg={3}>
-                      <CustomInput
-                        labelText="State"
-                        id="State"
-                        value={state}
-                        onChange={e => setState(e.target.value)}
-                        formControlProps={{
-                          fullWidth: false
-                        }}
-                      />
-                    </GridItem>
-
-                    <GridItem xs={12} sm={4} md={4} lg={3}>
-                      <CustomInput
-                        labelText="Zip Code"
-                        id="ZipCode"
-                        value={zip}
-                        onChange={e => setZip(e.target.value)}
-                        formControlProps={{
-                          fullWidth: false
-                        }}
-                      />
-                    </GridItem>
-
-                    <GridItem xs={12} sm={4} md={4} lg={3}>
-                      <CustomInput
-                        labelText="Height ft"
-                        id="HeightFt"
-                        formControlProps={{
-                          fullWidth: false
-                        }}
-                      />
-                    </GridItem>
-
-                    <GridItem xs={12} sm={4} md={4} lg={3}>
-                      <CustomInput
-                        labelText="Height in"
-                        id="HeightIn"
-                        value={height}
-                        onChange={e => setHeight(e.target.value)}
-                        formControlProps={{
-                          fullWidth: false
-                        }}
-                      />
-                    </GridItem>
-
-                    <GridItem xs={12} sm={4} md={4} lg={3}>
-                      <CustomInput
-                        labelText="Weight lbs"
-                        id="Weightlbs"
-                        value={weight}
-                        onChange={e => setWeight(e.target.value)}
-                        formControlProps={{
-                          fullWidth: false
-                        }}
-                      />
-                    </GridItem>
-
-                  </GridContainer>
-
-                  <Row form>
-                    <Col md="12" className="form-group">
-                      <label id="other">Your Motivation</label>
-
-                      <FormTextarea id="emp" rows="5" />
-                    </Col>
-                  </Row>
-                  <Button className="btnSettings" id="change"
-                    theme="muted"
-                    onClick={() => handleUpdateProfile()}
-                  >Update Account</Button> */}
                  <Row form>
                     {/* First Name */}
                     <Col md="6" className="form-group">
-                      <label htmlFor="feFirstName">First Name</label>
+                      <label htmlFor="feFirstName"></label>
                       <FormInput
                         id="feFirstName"
                         placeholder="First Name"
@@ -246,7 +91,7 @@ function UserInputSettings(props, { title }) {
                     </Col>
                     {/* Last Name */}
                     <Col md="6" className="form-group">
-                      <label htmlFor="feLastName">Last Name</label>
+                      <label htmlFor="feLastName"></label>
                       {/* <FormSelect id="feInputState">
                       <option>Choose...</option>
                       <option>...</option>
@@ -263,9 +108,9 @@ function UserInputSettings(props, { title }) {
                     </Col>
                    
                   </Row>
-                 
+                 {/* address */}
                   <FormGroup>
-                    <label htmlFor="feAddress">Address</label>
+                    <label htmlFor="feAddress"></label>
                     <FormInput
                       id="feAddress"
                       placeholder="Address"
@@ -276,7 +121,7 @@ function UserInputSettings(props, { title }) {
                   <Row form>
                     {/* City */}
                     <Col md="6" className="form-group">
-                      <label htmlFor="feCity">City</label>
+                      <label htmlFor="feCity"></label>
                       <FormInput
                         id="feCity"
                         placeholder="City"
@@ -286,7 +131,7 @@ function UserInputSettings(props, { title }) {
                     </Col>
                     {/* State */}
                     <Col md="4" className="form-group">
-                      <label htmlFor="feInputState">State</label>
+                      <label htmlFor="feInputState"></label>
                       {/* <FormSelect id="feInputState">
                       <option>Choose...</option>
                       <option>...</option>
@@ -303,7 +148,7 @@ function UserInputSettings(props, { title }) {
                     </Col>
                     {/* Zip Code */}
                     <Col md="2" className="form-group">
-                      <label htmlFor="feZipCode">Zip Code</label>
+                      <label htmlFor="feZipCode"></label>
                       <FormInput
                         id="feZipCode"
                         placeholder="Zip"
@@ -312,60 +157,23 @@ function UserInputSettings(props, { title }) {
                       />
                     </Col>
                   </Row>
-                  <Row form>
-                    {/* City */}
-                    <Col md="3" className="form-group">
-                      <label htmlFor="feHeightFt">Height</label>
-                      <FormInput
-                        id="feHeightFt"
-                        placeholder="Height feet"
-                        value={heightFt}
-                        onChange={e => setHeightFt(e.target.value)}
-                      />
-                    </Col>
-                    <Col md="3" className="form-group">
-                      <label htmlFor="feHeightIn">Height</label>
-                      <FormInput
-                        id="feHeightIn"
-                        placeholder="Height inches"
-                        value={heightIn}
-                        onChange={e => setHeightIn(e.target.value)}
-                      />
-                    </Col>
-                    {/* State */}
-                    <Col md="3" className="form-group">
-                      <label htmlFor="feWeight">Weight</label>
-                      {/* <FormSelect id="feInputState">
-                      <option>Choose...</option>
-                      <option>...</option>
-                    </FormSelect> */}
-                      <FormInput
-                        // <FormInput
-                        id="feWeight"
-                        placeholder="Weight"
-                        value={weight}
-                        // onChange={() => { }}
-                        onChange={e => setWeight(e.target.value)}
-                      // onClick={e => setState(e.target.value)}
-                      />
-                    </Col>
-                    {/* Zip Code */}
-                    <Col md="6" className="form-group">
-                      <label htmlFor="feMotivation">Motivation</label>
-                      <FormInput
+                 
+                    <FormGroup>
+                    <label htmlFor="feMotivation"></label>
+                    <FormInput
                         id="feMotivation"
                         placeholder="Motivation"
                         value={motivation}
                         onChange={e => setMotivation(e.target.value)}
                       />
-                    </Col>
-                  </Row>
+                  </FormGroup>
 
-                  <Button
-                    theme="accent"
+                  <Button 
+                    className="btnSettings "
+                    theme="muted"
                     onClick={() => handleUpdateProfile()}
+                  ><i className="fas fa-user-edit fa-2x padright"></i>Update Info</Button>
 
-                  >Update Account</Button>
                 </Form>
               </Col>
             </Row>
