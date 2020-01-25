@@ -1,20 +1,23 @@
 import React from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import axios from "axios";
 
 import "assets/css/shards-dashboards.1.1.0.css";
 import "assets/scss/now-ui-kit.scss";
 import "components/components.css";
-// import "bootstrap/dist/css/bootstrap.min.css";
 
 import * as serviceWorker from './serviceWorker';
 
 import Index from "pages/Landing.js";
 import SignUp from "pages/Register.js";
 import Profile from "pages/Profile.js";
+import UserSettings from "pages/Settings";
+import Table from "pages/Table";
+import Search from "pages/Search";
+// import Search from "pages/Search.js";
+// import Results from "pages/Results";
 
 import Goals from "./components/userGoals";
-import UserSettings from "./pages/Settings";
-import axios from "axios";
 
 serviceWorker.unregister();
 function App() {
@@ -23,18 +26,18 @@ function App() {
   const [loggedIn, setLoggedIn] = React.useState(false);
 
   const getUser = () => {
-    console.log(user);
-    console.log(loggedIn);
+    // console.log(user);
+    // console.log(loggedIn);
     axios.get('api/user_data').then(response => {
-      console.log('Get user response: ');
-      console.log(response.data);
+      // console.log('Get user response: ');
+      // console.log(response.data);
       if (response.data.email) {
-        console.log('Get user: There is a user saved in the server session');
+        // console.log('Get user: There is a user saved in the server session');
         setUser(response.data.email);
         setId(response.data.id);
         setLoggedIn(true)
       } else {
-        console.log('Get user: no user');
+        // console.log('Get user: no user');
         setUser(null);
         setLoggedIn(false);
         alert('You must login to use this page.');
@@ -53,6 +56,10 @@ function App() {
 
         <Route path="/settings" render={props => <UserSettings {...props} getUser={getUser } user = {user} loggedIn={loggedIn} id={id}/>} />
         <Route path="/goals" render={props => <Goals {...props} getUser={getUser} user = {user} loggedIn={loggedIn} id={id}/>} />
+        <Route path="/table" render={props => <Table {...props} getUser={getUser} user = {user} loggedIn={loggedIn} id={id}/>} />
+        <Route path="/search" render={props => <Search {...props} getUser={getUser} user = {user} loggedIn={loggedIn} id={id}/>} />
+        {/* <Route path="/search" render={props => <Search {...props} getUser={getUser} user = {user} loggedIn={loggedIn} id={id}/>} />
+        <Route path="/results" render={props => <Results {...props} getUser={getUser} user = {user} loggedIn={loggedIn} id={id}/>} /> */}
 
         <Route path="/sign-up" render={props => <SignUp {...props} getUser={getUser} user = {user} loggedIn={loggedIn} id={id}/>} />
         <Redirect to="/index" />

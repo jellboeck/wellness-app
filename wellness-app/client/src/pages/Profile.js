@@ -9,11 +9,12 @@ import ProfilePageHeader from "components/Headers/ProfilePageHeader.js";
 import DarkFooter from "components/Footers/DarkFooter.js";
 import BMIcalc from "components/BMIcalc.js";
 import Steps from "components/Steps.js";
+import WeightUpdate from "components/weightUpdate.js";
 import yelpSearch from "components/yelpSearch.js";
 
 function ProfilePage(props) {
-  console.log('profile');
-  console.log(props);
+  // console.log('profile');
+  // console.log(props);
   props.getUser();
   // const [pills, setPills] = React.useState("2");
   React.useEffect(() => {
@@ -34,15 +35,17 @@ function ProfilePage(props) {
   // const [city, setCity] = useState('');
   // const [state, setState] = useState('');
   // const [zip, setZip] = useState('');
-  const [motivation, setMotivation] = React.useState('');
+  const [motivation, setMotivation] = React.useState('Go to settings to enter a few words of motivation for yourself');
+  const [bmigoal, setBMIGoal] = React.useState('Go to setting to enter your goals');
+  const [stepgoal, setStepGoal] = React.useState('');
   // const [height, setHeight] = useState('');
   // const [weight, setWeight] = useState('');
 
   function getUserProfile() {
     axios.get('/api/user_profile').then(function(data){
-      console.log('profile data pro');
-      console.log(data.data.email);
-      console.log(data.data.motivation);
+      // console.log('profile data pro');
+      // console.log(data.data.email);
+      // console.log(data.data.motivation);
       // setFirstname(data.data.firstname);
       // setLastname(data.data.lastname);
       // setEmail(data.data.email);
@@ -53,6 +56,8 @@ function ProfilePage(props) {
       setMotivation(data.data.motivation);
       // setHeight(data.data.height);
       // setWeight(data.data.weight);
+      setBMIGoal(data.data.bmigoal);
+      setStepGoal(data.data.stepgoal);
     });
   }
 
@@ -70,16 +75,17 @@ function ProfilePage(props) {
             <h4 className="description" id="goals">
             <div className="content">
             <div className="social-description" id="bmigoal">
-              <h2>20%</h2>
+              <h2>{bmigoal}</h2>
               <p>BMI %</p>
             </div>
             <div className="social-description">
-              <h2>Hello</h2>
-              <p>{props.user}</p>
+              <h2>{stepgoal}</h2>
+              <p>Steps</p>
             </div>
 
             <div >
-            <BMIcalc {...props} user = {props.user} getUser={props.getUser} id={props.id} />
+            <BMIcalc {...props} user = {props.user} getUser={props.getUser} id={props.id}/>           
+            <WeightUpdate {...props} user = {props.user} getUser={props.getUser} id={props.id}/>     
             <Steps {...props} user = {props.user} getUser={props.getUser} id={props.id}/>
             </div>
 
@@ -92,10 +98,7 @@ function ProfilePage(props) {
             </h4>
 
             <h3 className="title">My Motivation</h3>
-            <h6 className="description" id="myMotivation">
-Enter a few simple lines in your profile about your motivation to meet your goals!
-            </h6>
-            <h4 className='title'>{motivation} </h4>
+            <h4 className='description'>{motivation} </h4>
             {/* <Row>
               <Col className="ml-auto mr-auto" md="6">
                 <h4 className="title text-center">My Metrics</h4>
