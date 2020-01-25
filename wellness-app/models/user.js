@@ -65,9 +65,16 @@ module.exports = function (sequelize, DataTypes) {
     },
     weight: {
       type: DataTypes.INTEGER
+    },
+    bmigoal: {
+      type: DataTypes.INTEGER
+    },
+    stepgoal: {
+      type: DataTypes.INTEGER
+    },
+    steptotal: {
+      type: DataTypes.INTEGER
     }
-
-
   });
 // custom method for our User model to check if an unhashed password entered
   // by user can be compared to hashed password in database
@@ -80,16 +87,12 @@ module.exports = function (sequelize, DataTypes) {
     user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
   });
 
-  // one user can have many steps and BMI calculations
+  // one user can have many steps
   User.associate = function (models) {
     User.hasMany(models.steps, {
       onDelete: 'cascade'
     });
-    // User.hasMany(models.dataBMI, {
-    //   onDelete: 'cascade'
-    // });
   };
-
 
   return User;
 };
