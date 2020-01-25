@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import axios from 'axios';
 
 import GridItem from "components/Grid/GridItem.js";
+import CustomInput from "components/user-settings/CustomInput.js";
 import GridContainer from "components/Grid/GridContainer.js";
 
 import {
@@ -11,7 +12,6 @@ import {
   Row,
   Col,
   Form,
-  FormInput,
   Container,
   Button
 } from "shards-react";
@@ -19,31 +19,37 @@ import {
 
 
 function Steps(props, { steps }) {
-  // console.log('user goals steps')
-  // console.log(props);
+  console.log('user goals steps')
+  console.log(props);
 
   const [lastStep, setLastStep] = useState('11538');
 
   function calcSteps() {
-    let yoursteps = document.getElementById('stepresult');
-    let mysteps = parseInt(document.getElementById('YourSteps').value);
+    let totalsteps = document.getElementById('stepresult');
+    let mysteps = parseInt(document.getElementById('Steps').value);
     let userId = props.id
     let userEmail = props.user
+
     axios({
       method: 'POST',
       url: '/api/new_step',
+      // test code
+      // data: {email: 'email@email2.com', password: '123456901591'}
       data: { quantity: mysteps, id: userId, userEmail: userEmail }
     })
       // change to main page
       .then(function (data) {
-        // console.log('data');
+        console.log('data');
       })
       // if error, handle by throwing err
       .catch(function (err) {
-        // console.log(err);
+        console.log(err);
       });
 
     if (mysteps) {
+
+      console.log("BMI");
+
 
       if (mysteps <= 3000) {
         var yourprogress = "You should try for at least 4000 steps"
@@ -61,38 +67,37 @@ function Steps(props, { steps }) {
     else {
       var yourprogress = "Please enter your steps"
     }
-    yoursteps.innerText = yourprogress;       // TREATS EVERY CONTENT AS TEXT.
+    totalsteps.innerText = yourprogress;       // TREATS EVERY CONTENT AS TEXT.
   }
   return (
     <Container fluid className="main-content-container px-2">
 
-      <Card className="mb-2 updatecard">
+      <Card className="mb-2">
         <ListGroup flush>
           <ListGroupItem >
             <Row >
               <Col>
                 <Form>
-                <h6 className="heading text-center">Update Your Steps</h6>
+
                   <GridContainer className="center">
-                  
+
                     <GridItem xs={12} sm={4} md={4} lg={3}>
-                    <FormInput
-          placeholder="Steps"
-          id="YourSteps"
-          formControlProps={{
-          fullWidth: false
-          }}
-          />
+                      <CustomInput
+                        labelText="Steps"
+                        id="Steps"
+                        formControlProps={{
+                          fullWidth: false
+                        }}
+                      />
                     </GridItem>
 
                   </GridContainer>
 
                   <Button id="StepsBtn"
-                  className="btnupdate"
                     theme="info"
-                    onClick={calcSteps}
-                  ><i className="fas fa-shoe-prints fa-3x fa-rotate-270"></i></Button>
-                  <h6 id="stepresult" className="heading text-center"></h6>
+                    onClick={() => calcSteps()}
+                  >Update Your Steps</Button>
+                  <h4 id="stepresult" className="title text-center"></h4>
 
                 </Form>
               </Col>
@@ -105,6 +110,8 @@ function Steps(props, { steps }) {
     </Container>
   );
 }
+
+
 
 
 export default Steps;
