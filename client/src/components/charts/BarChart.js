@@ -1,8 +1,20 @@
 import React, { Component } from 'react'
 import { Bar, Line, Pie } from 'react-chartjs-2';
-import { Container, Row, Col } from "shards-react";
+import GridItem from "components/Grid/GridItem.js";
+import GridContainer from "components/Grid/GridContainer.js";
 
-
+import {
+    Card,
+    ListGroup,
+    ListGroupItem,
+    Row,
+    Col,
+    Form,
+    Container,
+    FormInput,
+    Button
+  } from "shards-react";
+  
 class BarChart extends Component {
     // constructor(props) {
     //     console.log('barchart');
@@ -29,10 +41,19 @@ class BarChart extends Component {
     // }
     componentDidMount = () => console.log(this.props)
     render() {
+
+
         return (
-            <div className='barChart'>
-            <Col>
-                    <Line
+            <div className='barChart mb-12 chart'>
+
+<Container fluid className="main-content-container px-12">
+    
+{/* <Card> */}
+          <h6 className="heading text-center">Calculate Your BMI</h6>
+          <GridContainer>
+          
+          <GridItem xs={12} sm={6} md={6} lg={6} className='width'>
+          <Line
                         data={{
                             labels: [
                                 '1', '2', '3', '4', '5'
@@ -49,9 +70,11 @@ class BarChart extends Component {
                             maintainAspectRatio: false
                         }}
                     />
-            </Col>
-            <Col>
-            <Line
+          </GridItem>
+
+          <GridItem xs={12} sm={6} md={6} lg={6} className='width'>
+
+          <Line
                 data={{
                     labels: [
                         '1', '2', '3', '4', '5'
@@ -68,7 +91,15 @@ class BarChart extends Component {
                     maintainAspectRatio: false
                 }}
                 />
-            </Col>
+
+          </GridItem>
+
+          </GridContainer>
+
+{/* </Card> */}
+
+  </Container>
+
         </div>
         )
     }

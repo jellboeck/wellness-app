@@ -88,7 +88,7 @@ function userBMI(props, { BMI }) {
           
           <GridItem xs={12} sm={4} md={4} lg={4}>
           <FormInput
-          placeholder="weight"
+          placeholder="Weight"
           id="lbs"
           formControlProps={{
           fullWidth: false

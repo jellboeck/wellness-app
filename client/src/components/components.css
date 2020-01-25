@@ -43,6 +43,7 @@ color: #AAAAAA;
     text-align: center;
     font-weight: bolder;
     font-size: 15px;
+    width: 110px;
   }
   
   .form-group.no-border .input-group-prepend .input-group-text, .input-group.no-border .input-group-prepend .input-group-text {
@@ -237,3 +238,10 @@ color: white;
   margin-bottom: 10px;
   text-align: center;
 }
+
+.chart{
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+

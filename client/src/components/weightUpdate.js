@@ -34,7 +34,6 @@ function UserInputSettings(props, { title }) {
       .catch(function (err) {
         console.log(err);
       });
-
   }
 
   return (
@@ -46,7 +45,7 @@ function UserInputSettings(props, { title }) {
               <Col>
                 <Form>
 
-                <h6 className="heading text-center">Update Your Steps</h6>
+                <h6 className="heading text-center">Update Your Weight</h6>
                   <GridContainer className="center">
                   
                     <GridItem xs={12} sm={4} md={4} lg={3}>
@@ -79,13 +78,6 @@ function UserInputSettings(props, { title }) {
   );
 }
 
-// function Refresh() {
-//   setTimeout(reload, 3000);
-// }
-
-// function reload() {
-//   window.location.reload(false);
-// }
 
 UserInputSettings.propTypes = {
   /**
@@ -99,43 +91,3 @@ UserInputSettings.defaultProps = {
 };
 
 export default UserInputSettings;
-
-
-// <Container fluid className="main-content-container px-2">
-
-// <Card className="mb-2 updatecard">
-//   <ListGroup flush>
-//     <ListGroupItem >
-//       <Row >
-//         <Col>
-//           <Form>
-//           <h6 className="heading text-center">Update Your Weight</h6>
-//             <GridContainer className="center">
-//               <GridItem xs={12} sm={4} md={4} lg={3}>
-//                 <CustomInput
-//                   labelText="Weight"
-//                   id="Steps"
-//                   formControlProps={{
-//                     fullWidth: false
-//                   }}
-//                 />
-//               </GridItem>
-
-//             </GridContainer>
-
-//             <Button id="WeightBtn"
-//             className="btnupdate"
-//               theme="info"
-//               onClick={() => handleUpdateProfile()}
-//               onClick={calcSteps}
-//             ><i className="fas fa-weight fa-3x"></i></Button>
-
-//           </Form>
-//         </Col>
-//       </Row>
-//     </ListGroupItem>
-//   </ListGroup>
-// </Card>
-
-
-// </Container>

@@ -2,7 +2,6 @@ import React, {useState, useEffect} from "react";
 import axios from 'axios';
 import { Container, Row, Col } from "shards-react";
 
-import SmallStats from "../components/charts/SmallStats";
 import BarChart from '../components/charts/BarChart'
 
 function Goals(props, { smallStats }) {
@@ -91,71 +90,6 @@ function Goals(props, { smallStats }) {
       {/* Small Stats Blocks */}
       <Row>
         <BarChart bmis={bmis} steps={steps} />
-        {/* {smallStats.map((stats, idx) => (
-          <Col className="col-md-6 smallStats" key={idx} md='4' sm='6'>
-          <SmallStats
-          id={`small-stats-${idx}`}
-          variation="1"
-          chartData={stats.datasets}
-          chartLabels={stats.chartLabels}
-          label={stats.label}
-          value={stats.value}
-              percentage={stats.percentage}
-              increase={stats.increase}
-              // decrease={stats.decrease}
-              />
-              </Col>
-            ))} */}
-        {/* <Col className="col-md-6" key='1' md='4' sm='6'>
-          <SmallStats
-            id={`small-stats-$1`}
-            variation="1"
-            chartData={[
-              {
-                label: "Today",
-                fill: "start",
-                borderWidth: 3,
-                backgroundColor: "rgba(255,180,0,0.1)",
-                borderColor: "rgb(255,180,0)",
-                data: bmis
-              }
-            ]}
-            chartLabels={nulls}
-            label={"BMI%"}
-            value={"31%"}
-            percentage={"3.8%"}
-            increase={true}
-            // decrease={stats.decrease}
-            />
-            <ul> {bmiList} </ul>
-
-        </Col>
-        <Col className="col-md-6" key='2' md='4' sm='6'>
-          <SmallStats
-            id={`small-stats-$2`}
-            variation="1"
-            chartData={[
-              {
-                label: "Today",
-                fill: "start",
-                borderWidth: 3,
-                backgroundColor: "rgba(255,180,0,0.1)",
-                borderColor: "rgb(255,180,0)",
-                data: steps
-              }
-            ]}
-            chartLabels={[null, null, null, null, null, null, null]}
-            label={"Steps"}
-            value={lastStep}
-            // value={"11385"}
-            percentage={"3.8%"}
-            increase={true}
-            // decrease={stats.decrease}
-            />
-            <ul> {stepsList} </ul>
-        </Col> */}
-
-
       </Row>
 
       {/* Users Overview */}
