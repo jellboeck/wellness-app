@@ -13,8 +13,8 @@ import {
 } from "reactstrap";
 
 function ExamplesNavbar(props) {
-  console.log("exNavbar");
-  console.log(props);
+  //console.log("exNavbar");
+ // console.log(props);
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
   const [collapseOpen, setCollapseOpen] = React.useState(false);
   React.useEffect(() => {
@@ -125,13 +125,24 @@ function ExamplesNavbar(props) {
 
                 <Button
                 color="default"
-                to="/index"
+                to="/search"
                 outline
                 size="lg"
                 tag={Link}
                 >
                 <i className="fas fa-balance-scale fa-2x padright"></i>
                 <p className="d-lg-none d-xl-none">Resources</p>
+                </Button>
+
+                <Button
+                color="default"
+                to="/table"
+                outline
+                size="lg"
+                tag={Link}
+                >
+                <i className="fas fa-table fa-2x padright"></i>
+                <p className="d-lg-none d-xl-none">Tables</p>
                 </Button>
 
                 <Button

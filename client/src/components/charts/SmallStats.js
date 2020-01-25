@@ -8,8 +8,8 @@ import Chart from "./chart";
 
 class SmallStats extends React.Component {
   constructor(props) {
-    console.log('small stats');
-    console.log(props);
+   // console.log('small stats');
+  //  console.log(props);
     super(props);
 
     this.canvasRef = React.createRef();

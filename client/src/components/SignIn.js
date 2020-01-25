@@ -20,8 +20,8 @@ import {
 // core components
 
 function SignIn(props) {
-  console.log('Signin');
-  console.log(props);
+  //console.log('Signin');
+ // console.log(props);
 
   const [emailFocus, setEmailFocus] = React.useState(false);
   const [passwordFocus, setPasswordFocus] = React.useState(false);
@@ -29,7 +29,7 @@ function SignIn(props) {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const handleSignIn = () => {
-    console.log('logging in');
+   // console.log('logging in');
     // prevent default behavior of the form submit (which is to refresh the page)
     // event.preventDefault();
     // check for entry of email
@@ -48,8 +48,8 @@ function SignIn(props) {
       })
         // change to main page
         .then(function (data) {
-          console.log('data');
-          console.log(data);
+     //     console.log('data');
+     //     console.log(data);
           window.location.replace("/profile");
         })
         // if error, handle by throwing err
@@ -148,16 +148,7 @@ function SignIn(props) {
                       Or Sign Up
                   </Button>
 
-                    <Button
-                      className="btn-round btn-white"
-                      color="default"
-                      to="/profile"
-                      outline
-                      size="lg"
-                      tag={Link}
-                    >
-                      Profile
-            </Button>
+                  
 
                   </div>
 

@@ -61,7 +61,7 @@ function SettingsNav() {
                 size="sm"
                 tag={Link}
                 >
-                  <i className="fas fa-home fa-1x padright"></i>
+                  <i className="fas fa-home fa-2x padright"></i>
                   <p >  Home</p>
                 </Button>
 
@@ -72,7 +72,7 @@ function SettingsNav() {
                 size="sm"
                 tag={Link}
                 >
-                <i className="fas fa-balance-scale fa-1x padright"></i>
+                <i className="fas fa-balance-scale fa-2x padright"></i>
                 <p >Resources</p>
                 </Button>
 
@@ -83,7 +83,7 @@ function SettingsNav() {
                 size="sm"
                 tag={Link}
                 >
-                <i className="fas fa-user-circle fa-1x padright"></i>
+                <i className="fas fa-user fa-2x padright"></i>
                 <p >Profile</p>
                 </Button>
           </div>
