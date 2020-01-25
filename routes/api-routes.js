@@ -34,22 +34,6 @@ module.exports = function(app) {
     res.redirect("/");
   });
 
-// // test route for react signup
-//   app.post("/api/Form", function(req, res) {
-//     console.log(req.body)
-//     db.User.create({
-//       email: req.body.email,
-//       password: req.body.password
-//     })
-//       .then(function() {
-//         // res.redirect(307, "/api/Index");
-//         res.redirect(307, "/");
-//       })
-//       .catch(function(err) {
-//         console.log(err);
-//         res.status(401).json(err);
-//       });
-//   });
 
   // Route for getting some data about our user to be used client side
   app.get("/api/user_data", function(req, res) {
@@ -124,29 +108,7 @@ app.put("/api/update_profile", function(req, res) {
 });
 
 
-// // get event data for logged in user
-// app.get("/api/event_data", function(req, res) {
-//   db.calendar.findAll({
-//     where: {
-//       UserId: res.req.user.id
-//     },
-//     order: [
-//       ['year', 'ASC'],
-//       ['month', 'ASC'],
-//       ['day', 'ASC'],
-//       ['hour', 'DESC'],
-//       ['min', 'DESC'],
-//       ['ampm', 'DESC']
-//     ]
-//     // include: [{
-//     //   model: db.User,
-//     //   required: true
-//     // }]
-//   }).then(function(results){
-//     res.json(results);
-   
-//   });
-// });
+
 
 // // get event data for logged in user
 app.get("/api/step_data", function(req, res) {
@@ -188,22 +150,7 @@ app.get("/api/weight_data", function(req, res) {
    
   });
 });
-// // Add an event
-// app.post("/api/new", function(req, res) {
-//    db.calendar.create({
-//      // time: req.body.time,
-//      // date: req.body.date,
-//      month: req.body.month,
-//      day: req.body.day,
-//      year: req.body.year,
-//      hour: req.body.hour,
-//      min: req.body.min,
-//      ampm: req.body.ampm,
-//      event: req.body.event,
-//      UserId: req.user.id
-//    }).then(function(results) {
-//      res.end();
-//    });
+
 
 // // Add step for user
 app.post("/api/new_step", function(req, res) {
@@ -231,42 +178,42 @@ app.post("/api/new_step", function(req, res) {
    });
  
  });
-  //  // DELETE route for deleting entries. We can get the id of the todo to be deleted from
-  //  // req.params.id
-  //  app.delete("/api/event_del/:id", function(req, res) {
-  //    // We just have to specify which event we want to destroy with "where"
-  //    db.calendar.destroy({
-  //      where: {
-  //        id: req.params.id
-  //      }
-  //    }).then(function(entries) {
-  //      res.json(entries);
-  //    });
- 
-  //  });
- 
-  //  // PUT route for updating entries. We can get the updated entry data from req.body
-  //  app.put("/api/event_update/:id", function(req, res) {
-  //    // Update takes in an object describing the properties we want to update, and
-  //    // we use where to describe which objects we want to update
-  //    db.calendar.update({
-  //      // month: req.body.month,
-  //      // day: req.body.day,
-  //      // year: req.body.year,
-  //      // hour: req.body.hour,
-  //      // min: req.body.min,
-  //      // ampm: req.body.ampm,
-  //      // event: req.body.event,
-  //      event: req.body.event,
-  //      // UserId: req.params.id
-  //    }, {
-  //      where: {
-  //        id: req.params.id
-  //      }
-  //    }).then(function(entries) {
-  //      res.json(entries);
-  //    });
-  //  });
+  
+ // // get BMI data for logged in user
+ app.get("/api/bmi_data", function (req, res) {
+  console.log('BMI retrieval');
+  console.log(req.user.id);
+  db.dataBMI.findAll({
+    where: {
+      UserId: req.user.id
+    },
+    order: [
+      ['createdAt', 'DESC'],
+    ]
+    // include: [{
+    //   model: db.User,
+    //   required: true
+    // }]
+  }).then(function (results) {
+    res.json(results);
+
+  });
+});
+
+// // Add BMI data for user
+app.post("/api/new_bmi", function (req, res) {
+  console.log('req-bmi');
+  // console.log(req);
+  db.dataBMI.create({
+    storedCalc: req.body.storedCalc,
+    userEmail: req.body.userEmail,
+    UserId: req.body.id
+  }).then(function (results) {
+    res.end();
+  });
+
+});
+  
 
 };
 

@@ -1,4 +1,5 @@
 import React from "react";
+import axios from 'axios';
 
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
@@ -15,7 +16,65 @@ import {
   Button
 } from "shards-react";
 
-const userBMI = ({ BMI }) => (
+function userBMI(props, { BMI }) {
+  function JuliasBMImagicfunctionofglorythatourentireappisbasedaround() {
+
+    let yourlbs = parseInt(document.getElementById('lbs').value);
+    let yourft = parseInt(document.getElementById('ft').value);
+    let yourin = parseInt(document.getElementById('in').value);
+    var height = (yourft*12) + yourin
+
+    let userId = props.id
+    let userEmail = props.user
+
+      if (height && yourlbs) {
+        var BMI = (yourlbs / (height * height)) * 703
+        BMI = BMI.toFixed(1);
+        console.log(BMI);
+
+        if (BMI < 18.5) {
+          var bmiclass = "Your weight falls within the underweight range"
+          }
+        if(BMI > 18.5 && BMI < 25){
+          var bmiclass = "Your weight falls within the normal range"
+          }
+        if (BMI > 25 && BMI < 30) {
+          var bmiclass = "Your weight falls within the overweight range"
+          }
+        if (BMI > 30) {     
+          var bmiclass = "Your weight falls in the obese range"       
+          }
+
+          axios({
+            method: 'POST',
+            url: '/api/new_bmi',
+            // test code
+            // data: {email: 'email@email2.com', password: '123456901591'}
+            data: { storedCalc: BMI, id: userId, userEmail: userEmail }
+          })
+            // change to main page
+            .then(function (data) {
+              console.log('bmi-data');
+            })
+            // if error, handle by throwing err
+            .catch(function (err) {
+              console.log(err);
+            });
+
+    }
+    else {
+      var BMI = "0"
+      var bmiclass = "Please complete the form in its entirety"
+      }
+
+      let bmiperc = document.getElementById('BMI');
+      let bmistat = document.getElementById('bmiweight');
+
+      bmiperc.innerText = BMI+"%";    
+      bmistat.innerText = bmiclass;  
+
+  }
+  return( 
   <Container fluid className="main-content-container px-2">
     
 <Card className="mb-2 updatecard">
@@ -43,19 +102,19 @@ const userBMI = ({ BMI }) => (
           placeholder="Height ft"
           id="ft"
           formControlProps={{
-          fullWidth: false
+            fullWidth: false
           }}
           />
 
           </GridItem>
 
           <GridItem xs={12} sm={4} md={4} lg={4}>
-
+            
           <FormInput
           placeholder="Height in"
           id="in"
           formControlProps={{
-          fullWidth: false
+            fullWidth: false
           }}
           />
 
@@ -80,43 +139,63 @@ const userBMI = ({ BMI }) => (
 
   </Container>
 );
+}
 
-    function JuliasBMImagicfunctionofglorythatourentireappisbasedaround() {
 
-      let yourlbs = parseInt(document.getElementById('lbs').value);
-      let yourft = parseInt(document.getElementById('ft').value);
-      let yourin = parseInt(document.getElementById('in').value);
-      var height = (yourft*12) + yourin
 
-        if (height && yourlbs) {
-          var BMI = (yourlbs / (height * height)) * 703
-          BMI = BMI.toFixed(1);
-          console.log(BMI);
+// function JuliasBMImagicfunctionofglorythatourentireappisbasedaround() {
 
-          if (BMI < 18.5) {
-            var bmiclass = "Your weight falls within the underweight range"
-            }
-          if(BMI > 18.5 && BMI < 25){
-            var bmiclass = "Your weight falls within the normal range"
-            }
-          if (BMI > 25 && BMI < 30) {
-            var bmiclass = "Your weight falls within the overweight range"
-            }
-          if (BMI > 30) {     
-            var bmiclass = "Your weight falls in the obese range"       
-            }
-      }
-      else {
-        var BMI = "0"
-        var bmiclass = "Please complete the form in its entirety"
-        }
+//       let yourlbs = parseInt(document.getElementById('lbs').value);
+//       let yourft = parseInt(document.getElementById('ft').value);
+//       let yourin = parseInt(document.getElementById('in').value);
+//       var height = (yourft*12) + yourin
 
-        let bmiperc = document.getElementById('BMI');
-        let bmistat = document.getElementById('bmiweight');
+//         if (height && yourlbs) {
+//           var BMI = (yourlbs / (height * height)) * 703
+//           BMI = BMI.toFixed(1);
+//           console.log(BMI);
 
-        bmiperc.innerText = BMI+"%";    
-        bmistat.innerText = bmiclass;  
+//           if (BMI < 18.5) {
+//             var bmiclass = "Your weight falls within the underweight range"
+//             }
+//           if(BMI > 18.5 && BMI < 25){
+//             var bmiclass = "Your weight falls within the normal range"
+//             }
+//           if (BMI > 25 && BMI < 30) {
+//             var bmiclass = "Your weight falls within the overweight range"
+//             }
+//           if (BMI > 30) {     
+//             var bmiclass = "Your weight falls in the obese range"       
+//             }
 
-    }
+//             axios({
+//               method: 'POST',
+//               url: '/api/new_bmi',
+//               // test code
+//               // data: {email: 'email@email2.com', password: '123456901591'}
+//               data: { storedCalc: BMI, id: userId, userEmail: userEmail }
+//             })
+//               // change to main page
+//               .then(function (data) {
+//                 console.log('bmi-data');
+//               })
+//               // if error, handle by throwing err
+//               .catch(function (err) {
+//                 console.log(err);
+//               });
+
+//       }
+//       else {
+//         var BMI = "0"
+//         var bmiclass = "Please complete the form in its entirety"
+//         }
+
+//         let bmiperc = document.getElementById('BMI');
+//         let bmistat = document.getElementById('bmiweight');
+
+//         bmiperc.innerText = BMI+"%";    
+//         bmistat.innerText = bmiclass;  
+
+//     }
 
 export default userBMI;
