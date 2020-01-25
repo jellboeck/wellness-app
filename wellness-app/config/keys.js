@@ -1,5 +1,5 @@
 // display message on console when loaded
-console.log("\nthis is loaded");
+// console.log("\nthis is loaded");
 
 var yelpAPIKey = {yelpAPIKey: process.env.YELPAPIKEY};
 // export data so it is available

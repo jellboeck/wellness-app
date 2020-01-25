@@ -5,7 +5,6 @@ var keys = require("../keys.js");
 
 module.exports = {
 
-    
     "development": {
     "username": keys.database.username,
     "password": keys.database.password,
