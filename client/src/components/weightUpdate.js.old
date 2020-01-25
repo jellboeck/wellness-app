@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import PropTypes from "prop-types";
-import GridItem from "components/Grid/GridItem.js";
-import GridContainer from "components/Grid/GridContainer.js";
 
 import {
   Card,
@@ -38,37 +36,35 @@ function UserInputSettings(props, { title }) {
   }
 
   return (
-    <Container fluid className="main-content-container px-2">
-      <Card small className="mb-2 updatecard">
+    <Container>
+      <Card small className="mb-4">
         <ListGroup flush>
           <ListGroupItem className="p-3">
             <Row>
               <Col>
                 <Form>
 
-                <h6 className="heading text-center">Update Your Steps</h6>
-                  <GridContainer className="center">
-                  
-                    <GridItem xs={12} sm={4} md={4} lg={3}>
+                  <Row form>
+        
+                    <Col md="3" className="form-group">
+                      <label htmlFor="feWeight"></label>
+
                       <FormInput
-                      placeholder="Weight"
-                      id="feWeight"
-                      value={weight}
-                      onChange={e => setWeight(e.target.value)}
-                        formControlProps={{
-                          fullWidth: false
-                        }}
+                        id="feWeight"
+                        placeholder="Weight"
+                        value={weight}
+                        onChange={e => setWeight(e.target.value)}
                       />
-                    </GridItem>
+                    </Col>
 
-                  </GridContainer>
+                  </Row>
 
-                  <Button id="bt"
+                  <Button 
                     className="btnupdate"
-                    theme="info"
+                    theme="muted"
                     onClick={() => handleUpdateProfile()}
-                  ><i className="fas fa-weight fa-3x "></i></Button>
 
+                  >Update Account</Button>
                 </Form>
               </Col>
             </Row>
