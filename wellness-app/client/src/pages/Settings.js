@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "shards-react";
 
 import UserAccountDetails from "../components/user-settings/UserSettings";
-import UserGoals from "../components/UserGoals";
+import UserGoals from "../components/userGoals";
 import UserInput from "../components/user-settings/UserInputs";
 import Navbar from "../components/Navbars/NavbarSettings";
 
