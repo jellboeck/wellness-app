@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Container, Row, Col } from "shards-react";
 
 import SmallStats from "../components/charts/SmallStats";
+import BarChart from '../components/charts/BarChart'
 
 function Goals(props, { smallStats }) {
 
@@ -29,7 +30,7 @@ function Goals(props, { smallStats }) {
    
       // steps = getUserSteps();
       
-      console.log('steps out again')
+      console.log('steps out')
       console.log(steps);
     });
 
@@ -38,7 +39,7 @@ function Goals(props, { smallStats }) {
       console.log(data);
       
       const bmiData = [];
-      for (var i = 0; i < data.data.length; i++) {
+      for (var i = 0; i < 7; i++) {
         bmiData[i] = data.data[i].storedCalc
       }
       console.log('bmiData')
@@ -47,7 +48,7 @@ function Goals(props, { smallStats }) {
    
       // steps = getUserSteps();
       
-      console.log('bmi out again')
+      console.log('bmi out')
       console.log(bmis);
     });
 
@@ -62,9 +63,9 @@ function Goals(props, { smallStats }) {
   console.log(props);
   // var steps = [];
   
-  console.log('steps out')
+  console.log('steps out again')
   console.log(steps);
-  console.log('bmi out')
+  console.log('bmi out again')
   console.log(bmis);
 
 
@@ -89,6 +90,7 @@ function Goals(props, { smallStats }) {
 
       {/* Small Stats Blocks */}
       <Row>
+        <BarChart bmis={bmis} steps={steps} />
         {/* {smallStats.map((stats, idx) => (
           <Col className="col-md-6 smallStats" key={idx} md='4' sm='6'>
           <SmallStats
@@ -104,7 +106,7 @@ function Goals(props, { smallStats }) {
               />
               </Col>
             ))} */}
-        <Col className="col-md-6" key='1' md='4' sm='6'>
+        {/* <Col className="col-md-6" key='1' md='4' sm='6'>
           <SmallStats
             id={`small-stats-$1`}
             variation="1"
@@ -125,7 +127,7 @@ function Goals(props, { smallStats }) {
             increase={true}
             // decrease={stats.decrease}
             />
-            <ul>{bmiList}</ul>
+            <ul> {bmiList} </ul>
 
         </Col>
         <Col className="col-md-6" key='2' md='4' sm='6'>
@@ -150,8 +152,8 @@ function Goals(props, { smallStats }) {
             increase={true}
             // decrease={stats.decrease}
             />
-            <ul>{stepsList}</ul>
-        </Col>
+            <ul> {stepsList} </ul>
+        </Col> */}
 
 
       </Row>
