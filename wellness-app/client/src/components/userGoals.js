@@ -39,7 +39,7 @@ function Goals(props, { smallStats }) {
       console.log(data);
       
       const bmiData = [];
-      for (var i = 0; i < 7; i++) {
+      for (var i = 0; i < data.data.length; i++) {
         bmiData[i] = data.data[i].storedCalc
       }
       console.log('bmiData')
