@@ -80,12 +80,16 @@ module.exports = function (sequelize, DataTypes) {
     user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
   });
 
-  // one user can have many steps
+  // one user can have many steps and BMI calculations
   User.associate = function (models) {
     User.hasMany(models.steps, {
       onDelete: 'cascade'
     });
+    // User.hasMany(models.dataBMI, {
+    //   onDelete: 'cascade'
+    // });
   };
+
 
   return User;
 };

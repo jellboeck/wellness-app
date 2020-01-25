@@ -8,14 +8,8 @@ function Goals(props, { smallStats }) {
 
   const [lastStep, setLastStep] = useState('11538');
   const [steps, setSteps] = useState([2000, 3000, 4000, 5000, 6000, 5000, 4000, 3000, 4000, 3000]);
+  const [bmis, setBMI] = useState([2, 3, 3, 3, 4, 3, 5]);
   // const [steps, setSteps] = useState([]);
-  
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     console.log('This will run after 1 second!')
-  //   }, 1000);
-  //   return () => clearTimeout(timer);
-  // }, []);
   
   useEffect(() => {
 
@@ -31,20 +25,34 @@ function Goals(props, { smallStats }) {
       }
       console.log('stepsData')
       console.log(stepsData);
-      setSteps(stepsData)
+      setSteps(stepsData);
    
-      // return steps
-      // setWeight(data.data.weight);
-      // steps = [15000, 15000, 15000, 15000, 15000, 15000, 15000, 15000, 15000, 15000];
-      // steps = [8765, 12345, 5432, 6754, 1234, 1234, 1234, 1234, 4567, 10000];
-      // steps = [5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000];
-      // steps = [3000, 4000, 5000, 6000, 7000, 6000, 5000, 4000, 3000, 2000];
-      
       // steps = getUserSteps();
       
       console.log('steps out again')
       console.log(steps);
     });
+
+      axios.get('/api/bmi_data').then(function (data) {
+        console.log('bmi data');
+      console.log(data);
+      
+      const bmiData = [];
+      for (var i = 0; i < data.data.length; i++) {
+        bmiData[i] = data.data[i].storedCalc
+      }
+      console.log('bmiData')
+      console.log(bmiData);
+      setBMI(bmiData);
+   
+      // steps = getUserSteps();
+      
+      console.log('bmi out again')
+      console.log(bmis);
+    });
+
+
+
     
   
   }, [])
@@ -56,34 +64,19 @@ function Goals(props, { smallStats }) {
   
   console.log('steps out')
   console.log(steps);
+  console.log('bmi out')
+  console.log(bmis);
 
 
-    // axios.get('/api/step_data').then(function (data) {
-    //   console.log('step data');
-    //   console.log(data);
-    //   for (var i = 0; i < data.data.length; i++) {
-    //     steps[i] = data.data[i].quantity
-    //   }
-    //   console.log(steps);
-    //   // return steps
-    //   // setWeight(data.data.weight);
-    //   // steps = [15000, 15000, 15000, 15000, 15000, 15000, 15000, 15000, 15000, 15000];
-    //   // steps = [8765, 12345, 5432, 6754, 1234, 1234, 1234, 1234, 4567, 10000];
-    //   // steps = [5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000];
-    //   // steps = [3000, 4000, 5000, 6000, 7000, 6000, 5000, 4000, 3000, 2000];
-      
-    //   // steps = getUserSteps();
-      
-    //   console.log('steps out again')
-    //   console.log(steps);
-    // });
-  
   var nulls = [null, null, null, null, null, null, null]
-  var BMIdata = [2, 3, 3, 3, 4, 3, 5];
+  // var BMIdata = [2, 3, 3, 3, 4, 3, 5];
 
   const stepsList = steps.map((step) =>
     <li>{step}</li>
-  )
+  );
+  const bmiList = bmis.map((bmi) =>
+    <li>{bmi}</li>
+  );
 
   function getSteps(){
     return steps
@@ -122,7 +115,7 @@ function Goals(props, { smallStats }) {
                 borderWidth: 3,
                 backgroundColor: "rgba(255,180,0,0.1)",
                 borderColor: "rgb(255,180,0)",
-                data: BMIdata
+                data: bmis
               }
             ]}
             chartLabels={nulls}
@@ -132,6 +125,8 @@ function Goals(props, { smallStats }) {
             increase={true}
             // decrease={stats.decrease}
             />
+            <ul>{bmiList}</ul>
+
         </Col>
         <Col className="col-md-6" key='2' md='4' sm='6'>
           <SmallStats
@@ -155,7 +150,7 @@ function Goals(props, { smallStats }) {
             increase={true}
             // decrease={stats.decrease}
             />
-            {/* <ul>{stepsList}</ul> */}
+            <ul>{stepsList}</ul>
         </Col>
 
 

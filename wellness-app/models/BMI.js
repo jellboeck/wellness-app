@@ -1,6 +1,6 @@
-// define steps to keep track of steps data entries
+// define dataBMI to keep track of BMI entries
 module.exports = function(sequelize, DataTypes){
-    var steps = sequelize.define('steps', {
+    var dataBMI = sequelize.define('dataBMI', {
         userEmail: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -11,8 +11,8 @@ module.exports = function(sequelize, DataTypes){
                 }
             }
         },
-        quantity: {
-            type: DataTypes.INTEGER,
+        storedCalc: {
+            type: DataTypes.STRING,
             allowNull: false,
         }
     },
@@ -21,12 +21,12 @@ module.exports = function(sequelize, DataTypes){
     });
     
     // an event  belongs to a user
-    steps.associate = function(models){
-        steps.belongsTo(models.User, {
+    dataBMI.associate = function(models){
+        dataBMI.belongsTo(models.User, {
             foreignKey: {
                 allowNull: false
             }
         });
     };
-    return steps;
+    return dataBMI;
 };
