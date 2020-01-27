@@ -55,7 +55,7 @@ function Goals(props, { smallStats }) {
 
     
   
-  }, [])
+  }, [steps, bmis])
 
 
   console.log('user goals');

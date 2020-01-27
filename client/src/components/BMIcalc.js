@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState}  from "react";
 import axios from 'axios';
 
 import GridItem from "components/Grid/GridItem.js";
@@ -26,6 +26,7 @@ function userBMI(props, { BMI }) {
 
     let userId = props.id
     let userEmail = props.user
+    // const [bmis, setBMI] = useState([2, 3, 3, 3, 4, 3, 5]);
 
       if (height && yourlbs) {
         var BMI = (yourlbs / (height * height)) * 703
@@ -60,6 +61,24 @@ function userBMI(props, { BMI }) {
             .catch(function (err) {
               console.log(err);
             });
+
+          //   axios.get('/api/bmi_data').then(function (data) {
+          //     console.log('bmi data');
+          //   console.log(data);
+            
+          //   const bmiData = [];
+          //   for (var i = 0; i < data.data.length; i++) {
+          //     bmiData[i] = data.data[i].storedCalc
+          //   }
+          //   console.log('bmiData')
+          //   console.log(bmiData);
+          //   setBMI(bmiData);
+         
+          //   // steps = getUserSteps();
+            
+          //   console.log('bmi out')
+          //   console.log(bmis);
+          // });
 
     }
     else {
