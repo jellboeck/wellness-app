@@ -112,7 +112,7 @@ function ExamplesNavbar(props) {
               <NavItem>
 
 
-                <Button
+                {/* <Button
                 color="default"
                 to="/index"
                 outline
@@ -121,39 +121,39 @@ function ExamplesNavbar(props) {
                 >
                   <i className="fas fa-home fa-2x padright"></i>
                   <p className="d-lg-none d-xl-none">  Home</p>
-                </Button>
+                </Button> */}
 
                 <Button
+                className="profilebtn"
                 color="default"
                 to="/search"
-                outline
-                size="lg"
+                size="sm"
                 tag={Link}
                 >
                 <i className="fas fa-balance-scale fa-2x padright"></i>
-                <p className="d-lg-none d-xl-none">Resources</p>
+                <p>Resources</p>
                 </Button>
 
                 <Button
+                className="profilebtn"
                 color="default"
                 to="/table"
-                outline
-                size="lg"
+                size="sm"
                 tag={Link}
                 >
                 <i className="fas fa-table fa-2x padright"></i>
-                <p className="d-lg-none d-xl-none">Tables</p>
+                <p>Leaderboards</p>
                 </Button>
 
                 <Button
+                className="profilebtn"
                 color="default"
                 to="/settings"
-                outline
-                size="lg"
+                size="sm"
                 tag={Link}
                 >
                 <i className="fas fa-cogs fa-2x padright"></i>
-                <p className="d-lg-none d-xl-none">Settings</p>
+                <p>Settings</p>
                 </Button>
 
               </NavItem>

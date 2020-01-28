@@ -1,23 +1,23 @@
 import React from "react";
 import { Container, Row, Col, Card, CardHeader, CardBody } from "shards-react";
-
-import UserAccountDetails from "../components/user-settings/UserSettings";
-import UserGoals from "../components/userGoals";
-import UserInput from "../components/user-settings/UserInputs";
-import Navbar from "../components/Navbars/NavbarSettings";
+import GridItem from "components/Grid/GridItem.js";
+import GridContainer from "components/Grid/GridContainer.js";
+import Navbar from "../components/Navbars/NavbarTable";
+import Adds from "components/adds1.js";
 
 function TableCompare(props) {
   // console.log('usersettings');
   // console.log(props);
 
     return (
-      <Container fluid className="main-content-container px-4">
-
+  
+      <Container fluid className="main-content-container px-4 margin-top">
+<Navbar/>
       <Row>
         <Col>
-          <Card small className="mb-4">
+          <Card small className="mb-4 updatecard">
             <CardHeader className="border-bottom">
-              <h6 className="m-0">Active Users</h6>
+              <h6 className="m-3 tableTitle">Top Active Users</h6>
             </CardHeader>
             <CardBody className="p-0 pb-3">
               <table className="table mb-0">
@@ -33,14 +33,12 @@ function TableCompare(props) {
                       Last Name
                     </th>
                     <th scope="col" className="border-0">
-                      Country
+                      % lost
                     </th>
                     <th scope="col" className="border-0">
-                      City
+                      Total Steps
                     </th>
-                    <th scope="col" className="border-0">
-                      Phone
-                    </th>
+
                   </tr>
                 </thead>
                 <tbody>
@@ -48,33 +46,39 @@ function TableCompare(props) {
                     <td>1</td>
                     <td>Ali</td>
                     <td>Kerry</td>
-                    <td>Russian Federation</td>
-                    <td>Gdańsk</td>
-                    <td>107-0339</td>
+                    <td>15</td>
+                    <td>308,721</td>
+
                   </tr>
                   <tr>
                     <td>2</td>
-                    <td>Clark</td>
                     <td>Angela</td>
-                    <td>Estonia</td>
-                    <td>Borghetto di Vara</td>
-                    <td>1-660-850-1647</td>
+                    <td>Clark</td>
+                    <td>12</td>
+                    <td>253,769</td>
+
                   </tr>
                   <tr>
                     <td>3</td>
                     <td>Jerry</td>
                     <td>Nathan</td>
-                    <td>Cyprus</td>
-                    <td>Braunau am Inn</td>
-                    <td>214-4225</td>
+                    <td>11</td>
+                    <td>215,812</td>
+
                   </tr>
                   <tr>
                     <td>4</td>
-                    <td>Colt</td>
-                    <td>Angela</td>
-                    <td>Liberia</td>
-                    <td>Bad Hersfeld</td>
-                    <td>1-848-473-7416</td>
+                    <td>Justin</td>
+                    <td>Rodgers</td>
+                    <td>9</td>
+                    <td>158,975</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>Bob</td>
+                    <td>Swirls</td>
+                    <td>9</td>
+                    <td>150,822</td>
                   </tr>
                 </tbody>
               </table>
@@ -82,7 +86,7 @@ function TableCompare(props) {
           </Card>
         </Col>
       </Row>
-  
+      <Adds/>
     </Container>
     )
 };

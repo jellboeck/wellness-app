@@ -109,9 +109,7 @@ function UserGoalSettings(props, { title }) {
                       />
                     </Col>
 
-
-
-                    {/* Height in */}
+                    {/* total step */}
                     <Col md="3" className="form-group">
                       <label htmlFor="feStepTotal"></label>
                       <FormInput
@@ -121,8 +119,6 @@ function UserGoalSettings(props, { title }) {
                         onChange={e => setStepTotal(e.target.value)}
                       />
                     </Col>
-
-
 
                   </Row>
 

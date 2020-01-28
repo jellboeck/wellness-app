@@ -42,7 +42,7 @@ function SettingsNav() {
           }}
         />
       ) : null}
-      <Navbar className="fixed-top settingsnav" >
+      <Navbar className="fixed-top tablenav" >
         <Container>
           <UncontrolledDropdown className="button-dropdown">
             
@@ -51,40 +51,37 @@ function SettingsNav() {
             <NavbarBrand
               id="navbar-brand"
             >
-              Your Settings
+              The Leaderboard
             </NavbarBrand>
 
-             <Button className="navbtn btnSettings"
-
-                to="/index"
-
-                size="sm"
-                tag={Link}
-                >
-                  <i className="fas fa-home fa-2x padright"></i>
-                  <p >  Home</p>
-                </Button>
-
-                <Button className="navbtn btnSettings"
-
-                to="/index"
-
-                size="sm"
-                tag={Link}
-                >
-                <i className="fas fa-balance-scale fa-2x padright"></i>
-                <p >Resources</p>
-                </Button>
-
-                <Button className="navbtn btnSettings"
-
+            <Button
+                className="navbtn btntable"
                 to="/profile"
-
                 size="sm"
                 tag={Link}
                 >
                 <i className="fas fa-user fa-2x padright"></i>
                 <p >Profile</p>
+                </Button>
+
+                <Button
+                className="navbtn btntable"
+                to="/search"
+                size="sm"
+                tag={Link}
+                >
+                <i className="fas fa-balance-scale fa-2x padright"></i>
+                <p>Resources</p>
+                </Button>
+
+                <Button
+                className="navbtn btntable"
+                to="/settings"
+                size="sm"
+                tag={Link}
+                >
+                <i className="fas fa-cogs fa-2x padright"></i>
+                <p >Settings</p>
                 </Button>
           </div>
          
