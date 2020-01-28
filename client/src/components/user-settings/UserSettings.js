@@ -64,7 +64,7 @@ function UserAccountDetails(props, { title }) {
   }}
   >    
   <ListGroup className="p-3">
-    <ListGroupItem className="p-3">
+    <ListGroupItem className="p-3 purple-border">
       <Row>
         <Col>
           <Form>

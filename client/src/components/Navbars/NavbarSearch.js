@@ -12,25 +12,7 @@ import {
 function SettingsNav() {
   // const [setNavbarColor] = React.useState("navbar-dark");
   const [collapseOpen, setCollapseOpen] = React.useState(true);
-  // React.useEffect(() => {
-  //   const updateNavbarColor = () => {
-  //     if (
-  //       document.documentElement.scrollTop > 399 ||
-  //       document.body.scrollTop > 399
-  //     ) {
-  //       setNavbarColor("");
-  //     } else if (
-  //       document.documentElement.scrollTop < 400 ||
-  //       document.body.scrollTop < 400
-  //     ) {
-  //       setNavbarColor("navbar-dark");
-  //     }
-  //   };
-  //   window.addEventListener("scroll", updateNavbarColor);
-  //   return function cleanup() {
-  //     window.removeEventListener("scroll", updateNavbarColor);
-  //   };
-  // });
+
   return (
     <>
       {collapseOpen ? (
@@ -44,47 +26,39 @@ function SettingsNav() {
       ) : null}
       <Navbar className="fixed-top searchnav" >
         <Container>
-          <UncontrolledDropdown className="button-dropdown">
-            
-          </UncontrolledDropdown>
+
           <div className="navbar-translate ">
             <NavbarBrand
               id="navbar-brand"
             >
-              Your Settings
+              Your Resources
             </NavbarBrand>
 
              <Button className="navbtn btnsearch"
-
-                to="/index"
-
-                size="sm"
-                tag={Link}
-                >
-                  <i className="fas fa-home fa-2x padright"></i>
-                  <p >  Home</p>
-                </Button>
-
-                <Button className="navbtn btnsearch"
-
-                to="/index"
-
-                size="sm"
-                tag={Link}
-                >
-                <i className="fas fa-balance-scale fa-2x padright"></i>
-                <p >Resources</p>
-                </Button>
-
-                <Button className="navbtn btnsearch"
-
                 to="/profile"
-
                 size="sm"
                 tag={Link}
                 >
                 <i className="fas fa-user fa-2x padright"></i>
                 <p >Profile</p>
+                </Button>
+
+                <Button className="navbtn btnsearch"
+                to="/table"
+                size="sm"
+                tag={Link}
+                >
+                <i className="fas fa-table fa-2x padright"></i>
+                <p>Leaderboards</p>
+                </Button>
+
+                <Button className="navbtn btnsearch"
+                to="/settings"
+                size="sm"
+                tag={Link}
+                >
+                <i className="fas fa-cogs fa-2x padright"></i>
+                <p >Settings</p>
                 </Button>
           </div>
          

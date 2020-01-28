@@ -49,7 +49,6 @@ class BarChart extends Component {
 <Container fluid className="main-content-container px-12">
     
 {/* <Card> */}
-          <h6 className="heading text-center">Calculate Your BMI</h6>
           <GridContainer>
           
           <GridItem xs={12} sm={6} md={6} lg={6} className='width'>

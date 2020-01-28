@@ -80,8 +80,8 @@ function SearchComponent(props) {
              }}>
 
                 <Card className="mb-2 updatecard">
-                    <ListGroup flush>
-                        <ListGroupItem >
+                    <ListGroup flush >
+                        <ListGroupItem>
                             <Row >
                                 <Col>
                                     <GridContainer container justify="center" >

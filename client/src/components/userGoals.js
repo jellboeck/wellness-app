@@ -23,14 +23,14 @@ function Goals(props, { smallStats }) {
       for (var i = 0; i < data.data.length; i++) {
         stepsData[i] = data.data[i].quantity
       }
-      console.log('stepsData')
-      console.log(stepsData);
-      setSteps(stepsData);
+      // console.log('stepsData')
+      // console.log(stepsData);
+      // setSteps(stepsData);
    
-      // steps = getUserSteps();
+      // // steps = getUserSteps();
       
-      console.log('steps out')
-      console.log(steps);
+      // console.log('steps out')
+      // console.log(steps);
     });
 
       axios.get('/api/bmi_data').then(function (data) {
@@ -54,18 +54,20 @@ function Goals(props, { smallStats }) {
 
 
     
-  
-  }, [steps, bmis])
+// adding the line below runs a continuous loop to 
+// fetch steps and bmis data. i do not recommend it
+  // }, [steps, bmis])
+}, [])
 
 
-  console.log('user goals');
-  console.log(props);
-  // var steps = [];
+  // console.log('user goals');
+  // console.log(props);
+  // // var steps = [];
   
-  console.log('steps out again')
-  console.log(steps);
-  console.log('bmi out again')
-  console.log(bmis);
+  // console.log('steps out again')
+  // console.log(steps);
+  // console.log('bmi out again')
+  // console.log(bmis);
 
 
   var nulls = [null, null, null, null, null, null, null]

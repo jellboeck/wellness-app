@@ -44,9 +44,7 @@ function SettingsNav() {
       ) : null}
       <Navbar className="fixed-top settingsnav" >
         <Container>
-          <UncontrolledDropdown className="button-dropdown">
-            
-          </UncontrolledDropdown>
+
           <div className="navbar-translate ">
             <NavbarBrand
               id="navbar-brand"
@@ -55,36 +53,32 @@ function SettingsNav() {
             </NavbarBrand>
 
              <Button className="navbtn btnSettings"
-
-                to="/index"
-
-                size="sm"
-                tag={Link}
-                >
-                  <i className="fas fa-home fa-2x padright"></i>
-                  <p >  Home</p>
-                </Button>
-
-                <Button className="navbtn btnSettings"
-
-                to="/index"
-
-                size="sm"
-                tag={Link}
-                >
-                <i className="fas fa-balance-scale fa-2x padright"></i>
-                <p >Resources</p>
-                </Button>
-
-                <Button className="navbtn btnSettings"
-
                 to="/profile"
-
                 size="sm"
                 tag={Link}
                 >
                 <i className="fas fa-user fa-2x padright"></i>
                 <p >Profile</p>
+                </Button>
+
+                <Button className="navbtn btnSettings"
+                color="default"
+                to="/search"
+                size="sm"
+                tag={Link}
+                >
+                <i className="fas fa-balance-scale fa-2x padright"></i>
+                <p>Resources</p>
+                </Button>
+
+                <Button className="navbtn btnSettings"
+                color="default"
+                to="/table"
+                size="sm"
+                tag={Link}
+                >
+                <i className="fas fa-table fa-2x padright"></i>
+                <p>Leaderboards</p>
                 </Button>
           </div>
          

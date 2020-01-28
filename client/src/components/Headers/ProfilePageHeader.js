@@ -53,7 +53,7 @@ function ProfilePageHeader(props) {
   return (
     <>
       <div
-        className="page-header "
+        className="page-header"
       >
         <div
           className="page-header-image"
@@ -66,7 +66,7 @@ function ProfilePageHeader(props) {
 
         <Container>
           <div className="photo-container">
-            <img alt="..." src={require("assets/img/logan.png")}></img>
+            <img alt="..." src={require("assets/img/hungrytaco.gif")}></img>
           </div>
           <h2 className="title"> {firstname} <span> </span> {lastname} </h2>
    
