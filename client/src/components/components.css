@@ -77,7 +77,7 @@ color: #AAAAAA;
   }
 
   .brand{
-    padding-top: 450px;
+    padding-top: 250px;
   }
 
   .sidebar-collapse [class*="navbar-expand-"] .navbar-collapse {
@@ -191,7 +191,6 @@ color: white;
 }
 
 .container {
-  height: 700px;
   z-index: 1;
   text-align: center;
   position: relative;
