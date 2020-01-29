@@ -73,11 +73,8 @@ function SearchComponent(props) {
     }
 
     return (
-        <div>
-            <Container fluid className="main-content-container px-2"
-               style={{
-                marginTop: "115px"
-             }}>
+        <div >
+            <Container fluid className="main-content-container px-2">
 
                 <Card className="mb-2 updatecard">
                     <ListGroup flush >
@@ -107,6 +104,7 @@ function SearchComponent(props) {
                                         <GridItem md={6}>
 
                                             <Input
+                                            className="forminputtext"
                                                 labelText="Zip Code"
                                                 id="zip"
                                                 placeholder="Zip Code"
@@ -117,13 +115,18 @@ function SearchComponent(props) {
                                                 value={zip}
                                             />
 
-                                    <Button id="bt"
-                                    className="btnsearch btncenter"
-                                        theme="info"
-                                        onClick={gymSearch}
-                                    >Search</Button>
                                      </GridItem>
                                     </GridContainer>
+
+                                    <div className="center category">
+                                    <Button id="bt"
+                                    className="btnsearch"
+                                        theme="info"
+                                        onClick={gymSearch}
+                                        ><i className="fas fa-search fa-3x center"></i></Button>
+                                   </div >
+
+                                    
                                     {
                                         gyms.map((gym) => {
                                             return (

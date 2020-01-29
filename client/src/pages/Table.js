@@ -10,8 +10,8 @@ function TableCompare(props) {
   // console.log(props);
 
     return (
-  
-      <Container fluid className="main-content-container px-4 margin-top">
+
+      <Container fluid className="main-content-container">
 <Navbar/>
       <Row>
         <Col>
@@ -88,6 +88,7 @@ function TableCompare(props) {
       </Row>
       <Adds/>
     </Container>
+    
     )
 };
 

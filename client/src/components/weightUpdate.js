@@ -50,6 +50,7 @@ function UserInputSettings(props, { title }) {
                   
                     <GridItem xs={12} sm={4} md={4} lg={3}>
                       <FormInput
+                      className="forminputtext"
                       placeholder="Weight"
                       id="feWeight"
                       value={weight}

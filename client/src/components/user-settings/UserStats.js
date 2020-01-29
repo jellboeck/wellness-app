@@ -69,7 +69,7 @@ function UserGoalSettings(props, { title }) {
                     <Form>
                     <Row form>
                     {/* BMI goal */}
-                    <Col md="3" className="form-group">
+                    <Col md="3" className="form-group forminputtext">
                       <label htmlFor="feBMIGoal"></label>
                       <FormInput
                         id="feBMIGoal"
@@ -79,7 +79,7 @@ function UserGoalSettings(props, { title }) {
                       />
                     </Col>
                       {/* Step Goal */}
-                       <Col md="3" className="form-group">
+                       <Col md="3" className="form-group forminputtext">
                       <label htmlFor="feStepGoal"></label>
                       <FormInput
                         id="feStepGoal"
@@ -89,28 +89,28 @@ function UserGoalSettings(props, { title }) {
                       />
                     </Col>
                      {/* Height ft */}
-                    <Col md="3" className="form-group">
+                    <Col md="3" className="form-group forminputtext">
                       <label htmlFor="feHeightFt"></label>
                       <FormInput
                         id="feHeightFt"
-                        placeholder="Height feet"
+                        placeholder="Height ft"
                         value={heightFt}
                         onChange={e => setHeightFt(e.target.value)}
                       />
                     </Col>
                     {/* Height in */}
-                    <Col md="3" className="form-group">
+                    <Col md="3" className="form-group forminputtext">
                       <label htmlFor="feHeightIn"></label>
                       <FormInput
                         id="feHeightIn"
-                        placeholder="Height inches"
+                        placeholder="Height in"
                         value={heightIn}
                         onChange={e => setHeightIn(e.target.value)}
                       />
                     </Col>
 
                     {/* total step */}
-                    <Col md="3" className="form-group">
+                    <Col md="3" className="form-group forminputtext">
                       <label htmlFor="feStepTotal"></label>
                       <FormInput
                         id="feStepTotal"

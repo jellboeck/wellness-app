@@ -93,69 +93,7 @@ function ProfilePage(props) {
 
             <h3 className="title">My Motivation</h3>
             <h4 className='description'>{motivation} </h4>
-            {/* <Row>
-              <Col className="ml-auto mr-auto" md="6">
-                <h4 className="title text-center">My Metrics</h4>
-                <div className="nav-align-center">
-                  <Nav
-                    className="nav-pills-info nav-pills-just-icons"
-                    pills
-                    role="tablist"
-                  >
-                    <NavItem>
-                      <NavLink
-                        className={pills === "1" ? "active" : ""}
-                        href="#none"
-                        onClick={e => {
-                          e.preventDefault();
-                          setPills("1");
-                        }}
-                      >
-                        <i className="now-ui-icons ui-2_favourite-28"></i>
-                      </NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink
-                        className={pills === "2" ? "active" : ""}
-                        href="#none"
-                        onClick={e => {
-                          e.preventDefault();
-                          setPills("2");
-                        }}
-                      >
-
-                        <i className="now-ui-icons sport_user-run"></i>
-                      </NavLink>
-                    </NavItem>
-                  </Nav>
-
-                </div>
-                
-              </Col>
-              <TabContent className="gallery" activeTab={"pills" + pills}>
-
-                <TabPane tabId="pills1">
-                  <Col className="ml-auto mr-auto" md="10">
-                    <Row className="collections">
-                      <Col md="6">
-metrics Here
-                      </Col>
-                    </Row>
-                  </Col>
-                </TabPane>
-
-                <TabPane tabId="pills3">
-                  <Col className="ml-auto mr-auto" md="10">
-                    <Row className="collections">
-                      <Col md="6">
-metrics Here
-                      </Col>
-                    </Row>
-                  </Col>
-                </TabPane>
-
-              </TabContent>
-            </Row> */}
+   
           </Container>
 
         <DarkFooter />

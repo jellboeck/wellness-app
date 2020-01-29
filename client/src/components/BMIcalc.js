@@ -107,6 +107,7 @@ function userBMI(props, { BMI }) {
           
           <GridItem xs={12} sm={4} md={4} lg={4}>
           <FormInput
+          className="forminputtext"
           placeholder="Weight"
           id="lbs"
           formControlProps={{
@@ -118,6 +119,7 @@ function userBMI(props, { BMI }) {
           <GridItem xs={12} sm={4} md={4} lg={4}>
 
           <FormInput
+          className="forminputtext"
           placeholder="Height ft"
           id="ft"
           formControlProps={{
@@ -130,6 +132,7 @@ function userBMI(props, { BMI }) {
           <GridItem xs={12} sm={4} md={4} lg={4}>
             
           <FormInput
+          className="forminputtext"
           placeholder="Height in"
           id="in"
           formControlProps={{

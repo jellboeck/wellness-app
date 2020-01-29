@@ -14,75 +14,74 @@ import {
   InputGroupText,
   InputGroup,
   Container,
-  Row
+  Col
 } from "reactstrap";
 
-// core components
 
-function SignIn(props) {
-  //console.log('Signin');
- // console.log(props);
-
+function LoginPage() {
   const [emailFocus, setEmailFocus] = React.useState(false);
   const [passwordFocus, setPasswordFocus] = React.useState(false);
-
+  
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
-  const handleSignIn = () => {
-   // console.log('logging in');
-    // prevent default behavior of the form submit (which is to refresh the page)
-    // event.preventDefault();
+  
+  const handleSignUp = () => {
+    console.log('signing in');
     // check for entry of email
-    if (!email || !password) {
-      alert("Fill out your email and password please!");
+    if (!email) {
+      alert("Fill out your email please!");
       //check password for sufficient complexity
+    } else if (password.length < 6) {
+      alert(
+        `Choose a more secure password ${email}`
+      );
     } else {
       // if email and password present and password if correct length, post user information
       alert(`Hello ${email}`);
       axios({
         method: 'POST',
-        url: '/api/login',
+        url: '/api/signup',
         // test code
         // data: {email: 'email@email2.com', password: '123456901591'}
         data: { email: email, password: password }
       })
-        // change to main page
-        .then(function (data) {
-     //     console.log('data');
-     //     console.log(data);
-          window.location.replace("/profile");
-        })
-        // if error, handle by throwing err
-        .catch(function (err) {
-          console.log(err);
-        });
+      // change to main page
+      .then(function (data) {
+        window.location.replace("/profile");
+      })
+      // if error, handle by throwing err
+      .catch(function(err){
+        console.log(err);
+      });
     }
     // reset form
     setEmail('');
     setPassword('')
   };
-
+  
   return (
     <>
-      <div
-        className="section section-signup"
-        style={{
-          backgroundImage: "url(" + require("assets/img/wellness.jpg") + ")",
-          backgroundSize: "110% 100%",
-          backgroundPosition: "top center",
-          minHeight: "600px"
-        }}
-      >
-        <Container>
-          <Row>
-            <Card className="card-signup clear" >
-              <Form className="form" method="">
+      
+      <div>
+        <div className="content">
+          <Container>
 
-                <CardHeader className="text-center">
+              <Card className="card-login card-plain">
+                <Form className="form-signup" >
+                  <CardHeader className="text-center">
 
-                </CardHeader>
+                    <div className="n-logo">
+                    <Link to="/index">
+                      <img
+                        alt="..."
+                        className="n-logo logocenter"
+                        src={require("assets/img/logo1.png")}
+                      ></img>
+                    </Link>
+                    </div>
 
-                <CardBody>
+                  </CardHeader>
+                  <CardBody>
 
                   <InputGroup
                     className={
@@ -105,6 +104,8 @@ function SignIn(props) {
                     ></Input>
                   </InputGroup>
 
+
+
                   <InputGroup
                     className={
                       "no-border" + (passwordFocus ? " input-group-focus" : "")
@@ -126,42 +127,34 @@ function SignIn(props) {
                     ></Input>
                   </InputGroup>
 
-                </CardBody>
 
-                <CardFooter className="text-center">
-                  <Button
-                    className="btn-neutral btn-round"
-                    color="info"
-                    href="#none"
-                    onClick={() => handleSignIn()}
-                    size="lg"
-                  >
-                    Sign In
-                  </Button>
-                  <div className="col text-center">
+
+                  </CardBody>
+                  <CardFooter className="text-center">
                     <Button
-                      className="btn-round btn-white"
-                      color="default"
-                      to="/sign-up"
-                      outline
+                      block
+                      className="btn-neutral btn-round"
+                      color="info"
+                      href="#none"
+                      onClick={() => handleSignUp()}
                       size="lg"
-                      tag={Link}
                     >
-                      Or Sign Up
-                  </Button>
+                      Get Started
+                    </Button>
+                   
 
-                  
 
-                  </div>
 
-                </CardFooter>
-              </Form>
-            </Card>
-          </Row>
-        </Container>
+
+                  </CardFooter>
+                </Form>
+              </Card>
+
+          </Container>
+        </div>
       </div>
     </>
   );
 }
 
-export default SignIn;
+export default LoginPage;

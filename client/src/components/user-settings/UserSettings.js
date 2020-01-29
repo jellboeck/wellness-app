@@ -58,11 +58,7 @@ function UserAccountDetails(props, { title }) {
   return (
   <Container>
 
-  <Card className="mb-4 updatecard"
-   style={{
-     marginTop: "115px"
-  }}
-  >    
+  <Card className="mb-4 updatecard">    
   <ListGroup className="p-3">
     <ListGroupItem className="p-3 purple-border">
       <Row>

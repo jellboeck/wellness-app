@@ -9,6 +9,7 @@ import {
   Navbar,
   NavItem,
   Nav,
+  Col,
   Container,
 } from "reactstrap";
 
@@ -50,37 +51,7 @@ function ExamplesNavbar(props) {
       <Navbar className={"fixed-top " + navbarColor} color="info" expand="lg">
         <Container>
           <UncontrolledDropdown className="button-dropdown">
-            {/* <DropdownToggle
-              caret
-              data-toggle="dropdown"
-              href="#none"
-              id="navbarDropdown"
-              tag="a"
-              onClick={e => e.preventDefault()}
-            >
-              <span className="button-bar"></span>
-              <span className="button-bar"></span>
-              <span className="button-bar"></span>
-            </DropdownToggle> */}
-            {/* <DropdownMenu aria-labelledby="navbarDropdown">
-              <DropdownItem header tag="a">
-                Dropdown header
-              </DropdownItem>
-              <DropdownItem href="#none" onClick={e => e.preventDefault()}>
-                Action
-              </DropdownItem>
-              <DropdownItem href="#none" onClick={e => e.preventDefault()}>
-                Another action
-              </DropdownItem>
-              <DropdownItem href="#none" onClick={e => e.preventDefault()}>
-                Something else here
-              </DropdownItem>
-              <DropdownItem divider></DropdownItem>
-              <DropdownItem href="#none" onClick={e => e.preventDefault()}>
-                Separated link
-              </DropdownItem>
-              <DropdownItem divider></DropdownItem>
-            </DropdownMenu> */}
+         
           </UncontrolledDropdown>
           <div className="navbar-translate">
             <NavbarBrand
@@ -111,7 +82,7 @@ function ExamplesNavbar(props) {
              <Nav navbar>
               <NavItem>
 
-
+                <Col>
                 {/* <Button
                 color="default"
                 to="/index"
@@ -127,7 +98,7 @@ function ExamplesNavbar(props) {
                 className="profilebtn"
                 color="default"
                 to="/search"
-                size="sm"
+                size="md"
                 tag={Link}
                 >
                 <i className="fas fa-balance-scale fa-2x padright"></i>
@@ -138,7 +109,7 @@ function ExamplesNavbar(props) {
                 className="profilebtn"
                 color="default"
                 to="/table"
-                size="sm"
+                size="md"
                 tag={Link}
                 >
                 <i className="fas fa-table fa-2x padright"></i>
@@ -149,13 +120,13 @@ function ExamplesNavbar(props) {
                 className="profilebtn"
                 color="default"
                 to="/settings"
-                size="sm"
+                size="md"
                 tag={Link}
                 >
                 <i className="fas fa-cogs fa-2x padright"></i>
                 <p>Settings</p>
                 </Button>
-
+                </Col>
               </NavItem>
             </Nav>
           </Collapse>
