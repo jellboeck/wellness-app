@@ -30,8 +30,8 @@ function Index(props) {
           <SignIn />
 
         </div>
-        <DarkFooter />
       </div>
+      <DarkFooter />
     </>
   );
 }

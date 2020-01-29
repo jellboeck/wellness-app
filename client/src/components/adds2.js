@@ -5,7 +5,7 @@ import GridContainer from "components/Grid/GridContainer.js";
 
 function PaidAdds() {
     return (
-      <Container fluid className="ads-container px-4 margin-top">
+      <Container fluid className="ads-container px-4">
 <GridContainer>
 <Row>
 <GridItem>

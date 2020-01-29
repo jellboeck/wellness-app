@@ -19,13 +19,14 @@ color: #AAAAAA;
 .h6p{
   color:purple;
   font-weight: bold;
+  font-size: 15px;
   }
 
-.card-signup{
-    border-radius: 50px;
-    background: teal;
-    opacity: 0.8;
-    font-weight: bolder;
+.form-signup{
+  width: 300px;
+    left: 0px;
+    right: 0px;
+    color: rgb(104, 104, 104);
   }
 
   .clear{
@@ -46,6 +47,10 @@ color: #AAAAAA;
     width: 110px;
   }
   
+  .form-group .form-control, .input-group .form-control {
+    text-align: center;
+}
+
   .form-group.no-border .input-group-prepend .input-group-text, .input-group.no-border .input-group-prepend .input-group-text {
     background-color: rgba(43, 42, 42, 0.89);
   }
@@ -115,7 +120,12 @@ color: #AAAAAA;
 .btnsearch{
   background-color:  rgb(255, 136, 0);
   border-radius: 10px;
+}
 
+.btnsearch{
+  background-color:  rgb(255, 136, 0);
+  border-radius: 10px;
+  margin: 0px;
 }
 
 .btnSettings{
@@ -133,16 +143,19 @@ color: #AAAAAA;
 .settingsnav{
   background-color: purple;
  height: 100px;
+ border-radius: 20px;
 }
 
 .searchnav{
   background-color: rgb(255, 136, 0);
   height: 100px;
+  border-radius: 20px;
 }
 
 .tablenav{
   background-color: green;
   height: 100px;
+  border-radius: 20px;
 }
 
 .navbar-translate {
@@ -164,8 +177,6 @@ padding-top: 20px;
   justify-content: center;
   padding-left: 0px;
   padding-right: 0px;
-  margin-left: 0px;
-  margin-right: 0px;
 }
 
 .MuiInputLabel-formControl {
@@ -190,6 +201,10 @@ color: white;
   border: 3px solid gray;
 }
 
+.profile-page .page-header {
+  min-height: 700px;
+}
+
 .container {
   z-index: 1;
   text-align: center;
@@ -197,10 +212,30 @@ color: white;
 }
 
 .registerheader {
-  height: 600px;
-  z-index: 1;
-  text-align: center;
-  position: relative;
+  background-image: url(../assets/img/login.jpg);
+  box-sizing: border-box;
+width: 100%;
+height: 150px;
+background-size: 180% 100%;
+}
+
+.logup{
+height: 100%;
+width: 100%;
+left: 0;
+top: 0;
+overflow: hidden;
+position: fixed;
+}
+
+.footer{
+  position: absolute;
+  width: 100%;
+}
+
+.forminputtext{
+font-size: 15px;
+text-align: center;
 }
 
 .chartjs-render-monitor {
@@ -255,6 +290,8 @@ color: white;
 
 .profilebtn{
   background-color: transparent;
+  font-size: 15px;
+  border-radius: 15px;
 }
 
 .searchtitle {

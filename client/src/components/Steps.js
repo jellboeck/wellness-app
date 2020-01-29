@@ -77,6 +77,7 @@ function Steps(props, { steps }) {
                   
                     <GridItem xs={12} sm={4} md={4} lg={3}>
                     <FormInput
+                    className="forminputtext"
           placeholder="Steps"
           id="YourSteps"
           formControlProps={{

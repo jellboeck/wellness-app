@@ -12,25 +12,7 @@ import {
 function SettingsNav() {
   // const [setNavbarColor] = React.useState("navbar-dark");
   const [collapseOpen, setCollapseOpen] = React.useState(true);
-  // React.useEffect(() => {
-  //   const updateNavbarColor = () => {
-  //     if (
-  //       document.documentElement.scrollTop > 399 ||
-  //       document.body.scrollTop > 399
-  //     ) {
-  //       setNavbarColor("");
-  //     } else if (
-  //       document.documentElement.scrollTop < 400 ||
-  //       document.body.scrollTop < 400
-  //     ) {
-  //       setNavbarColor("navbar-dark");
-  //     }
-  //   };
-  //   window.addEventListener("scroll", updateNavbarColor);
-  //   return function cleanup() {
-  //     window.removeEventListener("scroll", updateNavbarColor);
-  //   };
-  // });
+
   return (
     <>
       {collapseOpen ? (
@@ -42,7 +24,7 @@ function SettingsNav() {
           }}
         />
       ) : null}
-      <Navbar className="fixed-top settingsnav" >
+      <Navbar className="settingsnav" >
         <Container>
 
           <div className="navbar-translate ">

@@ -80,7 +80,7 @@ function UserInputSettings(props, { title }) {
 
                  <Row form>
                     {/* First Name */}
-                    <Col md="6" className="form-group">
+                    <Col md="6" className="form-group forminputtext">
                       <label htmlFor="feFirstName"></label>
                       <FormInput
                         id="feFirstName"
@@ -90,7 +90,7 @@ function UserInputSettings(props, { title }) {
                       />
                     </Col>
                     {/* Last Name */}
-                    <Col md="6" className="form-group">
+                    <Col md="6" className="form-group forminputtext">
                       <label htmlFor="feLastName"></label>
                       {/* <FormSelect id="feInputState">
                       <option>Choose...</option>
@@ -109,7 +109,7 @@ function UserInputSettings(props, { title }) {
                    
                   </Row>
                  {/* address */}
-                  <FormGroup>
+                  <FormGroup className="forminputtext">
                     <label htmlFor="feAddress"></label>
                     <FormInput
                       id="feAddress"
@@ -120,7 +120,7 @@ function UserInputSettings(props, { title }) {
                   </FormGroup>
                   <Row form>
                     {/* City */}
-                    <Col md="6" className="form-group">
+                    <Col md="6" className="form-group forminputtext">
                       <label htmlFor="feCity"></label>
                       <FormInput
                         id="feCity"
@@ -130,7 +130,7 @@ function UserInputSettings(props, { title }) {
                       />
                     </Col>
                     {/* State */}
-                    <Col md="4" className="form-group">
+                    <Col md="4" className="form-group forminputtext">
                       <label htmlFor="feInputState"></label>
                       {/* <FormSelect id="feInputState">
                       <option>Choose...</option>
@@ -147,7 +147,7 @@ function UserInputSettings(props, { title }) {
                       />
                     </Col>
                     {/* Zip Code */}
-                    <Col md="2" className="form-group">
+                    <Col md="2" className="form-group forminputtext">
                       <label htmlFor="feZipCode"></label>
                       <FormInput
                         id="feZipCode"

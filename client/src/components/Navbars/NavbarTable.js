@@ -9,49 +9,21 @@ import {
   Container,
 } from "reactstrap";
 
-function SettingsNav() {
+function TableNav() {
   // const [setNavbarColor] = React.useState("navbar-dark");
-  const [collapseOpen, setCollapseOpen] = React.useState(true);
-  // React.useEffect(() => {
-  //   const updateNavbarColor = () => {
-  //     if (
-  //       document.documentElement.scrollTop > 399 ||
-  //       document.body.scrollTop > 399
-  //     ) {
-  //       setNavbarColor("");
-  //     } else if (
-  //       document.documentElement.scrollTop < 400 ||
-  //       document.body.scrollTop < 400
-  //     ) {
-  //       setNavbarColor("navbar-dark");
-  //     }
-  //   };
-  //   window.addEventListener("scroll", updateNavbarColor);
-  //   return function cleanup() {
-  //     window.removeEventListener("scroll", updateNavbarColor);
-  //   };
-  // });
+  const [] = React.useState(true);
+
   return (
     <>
-      {collapseOpen ? (
-        <div
-          id="bodyClick"
-          onClick={() => {
-            document.documentElement.classList.toggle("nav-open");
-            setCollapseOpen(false);
-          }}
-        />
-      ) : null}
-      <Navbar className="fixed-top tablenav" >
+        <div/>
+      <Navbar className="tablenav" >
         <Container>
-          <UncontrolledDropdown className="button-dropdown">
-            
-          </UncontrolledDropdown>
+
           <div className="navbar-translate ">
             <NavbarBrand
               id="navbar-brand"
             >
-              The Leaderboard
+              Your Settings
             </NavbarBrand>
 
             <Button
@@ -91,4 +63,4 @@ function SettingsNav() {
   );
 }
 
-export default SettingsNav;
+export default TableNav;
