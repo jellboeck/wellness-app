@@ -78,16 +78,13 @@ function LoginPage() {
   return (
     <>
 
-      <div className="page-header clear-filter" filter-color="blue">
-        <div
-          className="page-header-image"
+      <div className="registerheader" className="page-header-image"
           style={{
             backgroundImage: "url(" + require("assets/img/login.jpg") + ")"
-          }}
-        ></div>
+          }}>
         <div className="content">
           <Container>
-            <Col className="ml-auto mr-auto" md="6">
+
               <Card className="card-login card-plain">
                 <Form action="" className="form" method="">
                   <CardHeader className="text-center">
@@ -169,7 +166,7 @@ function LoginPage() {
                   </CardFooter>
                 </Form>
               </Card>
-            </Col>
+
           </Container>
         </div>
         <TransparentFooter />

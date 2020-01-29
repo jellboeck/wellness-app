@@ -104,13 +104,12 @@ color: #AAAAAA;
 
 
 .btncenter{
-    display: flex;
-    width: 150px;
-    justify-content: center;
-
-display: block;
-margin-left: auto;
-margin-right: auto;
+  display: flex;
+  width: 150px;
+  justify-content: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .btnsearch{
@@ -191,8 +190,15 @@ color: white;
   border: 3px solid gray;
 }
 
-.page-header .container {
+.container {
   height: 700px;
+  z-index: 1;
+  text-align: center;
+  position: relative;
+}
+
+.registerheader {
+  height: 600px;
   z-index: 1;
   text-align: center;
   position: relative;
@@ -212,6 +218,10 @@ color: white;
 
 .btnupdate{
   border-radius: 20px;
+}
+
+.formupdate{
+  min-width: 110px;
 }
 
 .heading{
