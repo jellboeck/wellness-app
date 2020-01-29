@@ -1,29 +1,55 @@
-# Create React Express App
+# The Wellness App
 
-## About This Boilerplate
+## The Wellness App is designed so that users can keep track of values that are key to their health, perform searches for resources, and compare how they are doing to others using the app.
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
+#### When the user arrives at the website, they are greeted by the welcom page.
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+![picture](/client/src/assets/img/welcome.png)
 
-## Starting the app locally
+#### Upon scrolling down, the user finds the Sign In area. If the use already has an account they can use the email and password to log in. If it is the users first time to visit the website, they can click on the 'Or Sign Up' link to create an account.
 
-Start by installing front and backend dependencies. While in this directory, run the following command:
+![picture](/client/src/assets/img/signin.png)
 
-```
-npm install
-```
+![picture](/client/src/assets/img/signup.png)
 
-This should install node modules within the server and the client folder.
+#### After signing in or signing up the user is taken to the profile page.
 
-After both installations complete, run the following command in your terminal:
+![picture](/client/src/assets/img/profile-load.png)
 
-```
-npm start
-```
+#### When the user scrolls down, they are taken to the area where they can update their key health values. When the values have been typed on the box, the user click on the button for thoses values. Messages are displayed on how the user is doing for Body Mass Index (BMI) and steps.
 
-Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
+![picture](/client/src/assets/img/profile-data.png)
+![picture](/client/src/assets/img/profile-bmi.png)![picture](/client/src/assets/img/profile-steps.png)
 
-## Deployment (Heroku)
+#### The graphs are updated with the values entered.
 
-To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.
+![picture](/client/src/assets/img/profile-graphs.png)
+
+#### In the upper right hand corner of the profile page, the user find the navigation bar.
+
+![picture](/client/src/assets/img/profile-nav.png)
+
+#### The Resources link takes the user to the page where they can perform a search by zip code using selections from the pull down menu.
+
+![picture](/client/src/assets/img/resources.png)
+
+#### The Leaderboards link takes the user to the page where they can compare how they are doing to other app users.
+
+![picture](/client/src/assets/img/leaderboards.png)
+
+#### The Setting link takes the user to the page where they update their profile data. This data will display after the page is refreshed.
+
+![picture](/client/src/assets/img/profile-entry.png)
+![picture](/client/src/assets/img/profile-entered.png)
+
+#### Updated values for the users name and motivation are displayed on the profile page.
+
+![picture](/client/src/assets/img/name.png)![picture](/client/src/assets/img/motivation.png)
+
+#### This app was built using react.js, node.js and mySQL by four contributors Julia Ellboeck, Ray James, Ron Johnson, and Andrew Shamrock.
+
+
+
+
+
+

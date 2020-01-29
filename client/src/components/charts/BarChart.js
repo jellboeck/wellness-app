@@ -55,7 +55,7 @@ class BarChart extends Component {
           <Line
                         data={{
                             labels: [
-                                '1', '2', '3', '4', '5'
+                                'Most Recent', '', '', '', ''
                             ],
                             datasets: [
                                 {
@@ -76,7 +76,7 @@ class BarChart extends Component {
           <Line
                 data={{
                     labels: [
-                        '1', '2', '3', '4', '5'
+                        'Most Recent', '', '', '', ''
                     ],
                     datasets: [
                         {
