@@ -25,9 +25,9 @@ function Goals(props, { smallStats }) {
       }
       // console.log('stepsData')
       // console.log(stepsData);
-      // setSteps(stepsData);
+      setSteps(stepsData);
    
-      // // steps = getUserSteps();
+      // steps = getUserSteps();
       
       // console.log('steps out')
       // console.log(steps);
@@ -57,7 +57,7 @@ function Goals(props, { smallStats }) {
 // adding the line below runs a continuous loop to 
 // fetch steps and bmis data. i do not recommend it
   // }, [steps, bmis])
-}, [])
+}, [steps, bmis])
 
 
   // console.log('user goals');
